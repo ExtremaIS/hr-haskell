@@ -142,7 +142,7 @@ main = do
           ]
 
     version :: String
-    version = "hr-haskell " <> showVersion Project.version
+    version = "hr-haskell " ++ showVersion Project.version
 
     formatHelp :: Doc
     formatHelp = LibOA.section "FORMAT codes:" $ LibOA.table

@@ -24,6 +24,12 @@ following conventions:
 
 [KaC]: <https://keepachangelog.com/en/1.0.0/>
 
+## 0.1.0.1 (2019-12-29)
+
+### Non-Breaking
+
+* Fix operator for compatibility with GHC 8.2.2
+
 ## 0.1.0.0 (2019-12-29)
 
 ### Breaking
