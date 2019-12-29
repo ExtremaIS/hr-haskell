@@ -26,6 +26,10 @@ following conventions:
 
 ## Unreleased
 
+### Non-Breaking
+
+* Fix operator for compatibility with GHC 8.2.2
+
 ## 0.1.0.0 (2019-12-29)
 
 ### Breaking
