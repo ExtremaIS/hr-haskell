@@ -139,9 +139,9 @@ repl:
 .PHONY: repl
 
 source-git:
-> $(eval BRANCH := $(shell git rev-parse --abbrev-ref HEAD))
-> @test "${BRANCH}" = "master" || echo "WARNING: Not in master branch!" >&2
 > $(eval TREE := "HEAD")
+> $(eval BRANCH := $(shell git rev-parse --abbrev-ref $(TREE)))
+> @test "${BRANCH}" = "master" || echo "WARNING: Not in master branch!" >&2
 > $(eval VERSION := $(shell \
     grep '^version:' $(CABAL_FILE) | sed 's/^version: *//'))
 > @mkdir -p build
