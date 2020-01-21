@@ -46,7 +46,8 @@ See the [`hr` man page](doc/hr.1.md) for usage information.
 
 ## Project
 
-There are no plans to put this package on Hackage.
+`hr` was written quickly to solve a particular pain point.  There are no plans
+to expose a library or put the package on Hackage.
 
 ### Links
 
