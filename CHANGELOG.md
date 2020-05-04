@@ -26,6 +26,11 @@ following conventions:
 
 ## Unreleased
 
+### Non-Breaking
+
+* Refactor `Makefile`, add `STACK_NIX_PATH` support
+* Add `test-all` command to `Makefile`
+
 ## 0.1.0.1 (2019-12-29)
 
 ### Non-Breaking

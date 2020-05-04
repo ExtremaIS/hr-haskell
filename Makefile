@@ -20,6 +20,11 @@ SHELL := bash
 MAKEFLAGS += --no-builtin-rules
 MAKEFLAGS += --warn-undefined-variables
 
+NIX_PATH_ARGS :=
+ifneq ($(origin STACK_NIX_PATH), undefined)
+  NIX_PATH_ARGS := "--nix-path=$(STACK_NIX_PATH)"
+endif
+
 RESOLVER_ARGS :=
 ifneq ($(origin RESOLVER), undefined)
   RESOLVER_ARGS := "--resolver" "$(RESOLVER)"
@@ -53,7 +58,7 @@ _default: build
 
 build:
 > @command -v hr >/dev/null 2>&1 && hr -t || true
-> @stack build $(RESOLVER_ARGS) $(STACK_YAML_ARGS)
+> @stack build $(RESOLVER_ARGS) $(STACK_YAML_ARGS) $(NIX_PATH_ARGS)
 .PHONY: build
 
 clean:
@@ -88,9 +93,11 @@ help:
 > @echo "make source-git  create source tarball of git TREE"
 > @echo "make source-tar  create source tarball using tar"
 > @echo "make test        run tests, optionally for pattern P *"
+> @echo "make test-all    run tests for all versions"
 > @echo "make todo        search for TODO items"
 > @echo "make version     show current version"
 > @echo
+> @echo "* Use STACK_NIX_PATH to specify a Nix path."
 > @echo "* Use RESOLVER to specify a resolver."
 > @echo "* Use CONFIG to specify a Stack configuration file."
 .PHONY: help
@@ -135,7 +142,7 @@ recent:
 .PHONY: recent
 
 repl:
-> @stack exec ghci $(RESOLVER_ARGS) $(STACK_YAML_ARGS)
+> @stack exec ghci $(RESOLVER_ARGS) $(STACK_YAML_ARGS) $(NIX_PATH_ARGS)
 .PHONY: repl
 
 source-git:
@@ -168,10 +175,45 @@ test:
 > $(eval P := "")
 > @command -v hr >/dev/null 2>&1 && hr -t || true
 > @test -z "$(P)" \
->   && stack test $(RESOLVER_ARGS) $(STACK_YAML_ARGS) \
->   || stack test $(RESOLVER_ARGS) $(STACK_YAML_ARGS) \
+>   && stack test $(RESOLVER_ARGS) $(STACK_YAML_ARGS) $(NIX_PATH_ARGS) \
+>   || stack test $(RESOLVER_ARGS) $(STACK_YAML_ARGS) $(NIX_PATH_ARGS) \
 >       --test-arguments '--pattern $(P)'
 .PHONY: test
+
+test-all:
+> $(eval CONFIG := $(shell \
+    test -f stack-nix-8.2.2.yaml \
+    && echo stack-nix-8.2.2.yaml \
+    || echo stack-8.2.2.yaml))
+> @command -v hr >/dev/null 2>&1 && hr $(CONFIG) || true
+> @make test CONFIG=$(CONFIG)
+> $(eval CONFIG := $(shell \
+    test -f stack-nix-8.4.4.yaml \
+    && echo stack-nix-8.4.4.yaml \
+    || echo stack-8.4.4.yaml))
+> @command -v hr >/dev/null 2>&1 && hr $(CONFIG) || true
+> @make test CONFIG=$(CONFIG)
+> $(eval CONFIG := $(shell \
+    test -f stack-nix-8.6.5.yaml \
+    && echo stack-nix-8.6.5.yaml \
+    || echo stack-8.6.5.yaml))
+> @command -v hr >/dev/null 2>&1 && hr $(CONFIG) || true
+> @make test CONFIG=$(CONFIG)
+> $(eval CONFIG := $(shell \
+    test -f stack-nix.yaml \
+    && echo stack-nix.yaml \
+    || echo stack.yaml))
+> @command -v hr >/dev/null 2>&1 && hr $(CONFIG) || true
+> @make test CONFIG=$(CONFIG)
+> $(eval STACK_NIX_PATH := $(shell \
+    test -f stack-nix-nightly.path \
+    && cat stack-nix-nightly.path \
+    || true))
+> @command -v hr >/dev/null 2>&1 && hr nightly || true
+> @test -f stack-nix-nightly.path \
+>   && make test RESOLVER=nightly STACK_NIX_PATH="$(STACK_NIX_PATH)" \
+>   || make test RESOLVER=nightly
+.PHONY: test-all
 
 todo:
 > @find . -type f \
