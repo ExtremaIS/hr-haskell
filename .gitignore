@@ -6,5 +6,10 @@
 *.yaml.lock
 stack-nix*
 
+# cabal
+cabal.project.local
+cabal.project.local~
+/dist-newstyle/
+
 # vi
 .*.swp

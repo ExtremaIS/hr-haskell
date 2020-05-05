@@ -30,6 +30,7 @@ following conventions:
 
 * Refactor `Makefile`, add `STACK_NIX_PATH` support
 * Add `test-all` command to `Makefile`
+* Add Nix configuration
 
 ## 0.1.0.1 (2019-12-29)
 
