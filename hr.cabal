@@ -1,5 +1,5 @@
 name:           hr
-version:        0.1.0.1
+version:        0.1.0.2
 category:       Utils
 synopsis:       horizontal rule for the terminal
 description:
@@ -11,7 +11,7 @@ homepage:       https://github.com/ExtremaIS/hr-haskell#readme
 bug-reports:    https://github.com/ExtremaIS/hr-haskell/issues
 author:         Travis Cardwell <travis.cardwell@extrema.is>
 maintainer:     Travis Cardwell <travis.cardwell@extrema.is>
-copyright:      Copyright (c) 2019 Travis Cardwell
+copyright:      Copyright (c) 2019-2020 Travis Cardwell
 license:        MIT
 license-file:   LICENSE
 
@@ -21,7 +21,8 @@ tested-with:
   GHC ==8.2.2
    || ==8.4.4
    || ==8.6.5
-   || ==8.8.1
+   || ==8.8.4
+   || ==8.10.2
 
 extra-source-files:
   CHANGELOG.md

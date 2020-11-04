@@ -24,6 +24,15 @@ following conventions:
 
 [KaC]: <https://keepachangelog.com/en/1.0.0/>
 
+## 0.1.0.2 (2020-11-05)
+
+### Non-Breaking
+
+* Rename Git default branch to `main`
+* Refactor `Makefile`, add `STACK_NIX_PATH` support
+* Add `test-all` command to `Makefile`
+* Add Nix configuration
+
 ## 0.1.0.1 (2019-12-29)
 
 ### Non-Breaking

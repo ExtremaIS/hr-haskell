@@ -1,6 +1,6 @@
 # hr
 
-[![Build Status](https://travis-ci.com/ExtremaIS/hr-haskell.svg?branch=master)](https://travis-ci.com/ExtremaIS/hr-haskell)
+[![Build Status](https://travis-ci.com/ExtremaIS/hr-haskell.svg?branch=main)](https://travis-ci.com/ExtremaIS/hr-haskell)
 
 * [Overview](#overview)
 * [Requirements](#requirements)
@@ -46,7 +46,8 @@ See the [`hr` man page](doc/hr.1.md) for usage information.
 
 ## Project
 
-There are no plans to put this package on Hackage.
+`hr` was written quickly to solve a particular pain point.  There are no plans
+to expose a library or put the package on Hackage.
 
 ### Links
 
@@ -54,7 +55,7 @@ There are no plans to put this package on Hackage.
 
 ### Releases
 
-All releases are tagged in the `master` branch.  Release tags are signed using
+All releases are tagged in the `main` branch.  Release tags are signed using
 the
 [`security@extrema.is` GPG key](http://keys.gnupg.net/pks/lookup?op=vindex&fingerprint=on&search=0x1D484E4B4705FADF).
 
