@@ -1,6 +1,6 @@
 # hr
 
-[![Build Status](https://travis-ci.com/ExtremaIS/hr-haskell.svg?branch=master)](https://travis-ci.com/ExtremaIS/hr-haskell)
+[![Build Status](https://travis-ci.com/ExtremaIS/hr-haskell.svg?branch=main)](https://travis-ci.com/ExtremaIS/hr-haskell)
 
 * [Overview](#overview)
 * [Requirements](#requirements)
@@ -55,7 +55,7 @@ to expose a library or put the package on Hackage.
 
 ### Releases
 
-All releases are tagged in the `master` branch.  Release tags are signed using
+All releases are tagged in the `main` branch.  Release tags are signed using
 the
 [`security@extrema.is` GPG key](http://keys.gnupg.net/pks/lookup?op=vindex&fingerprint=on&search=0x1D484E4B4705FADF).
 

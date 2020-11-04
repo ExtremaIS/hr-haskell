@@ -28,6 +28,7 @@ following conventions:
 
 ### Non-Breaking
 
+* Rename Git default branch to `main`
 * Refactor `Makefile`, add `STACK_NIX_PATH` support
 * Add `test-all` command to `Makefile`
 * Add Nix configuration
