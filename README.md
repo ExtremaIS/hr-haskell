@@ -1,7 +1,5 @@
 # hr
 
-[![Build Status](https://travis-ci.com/ExtremaIS/hr-haskell.svg?branch=main)](https://travis-ci.com/ExtremaIS/hr-haskell)
-
 * [Overview](#overview)
 * [Requirements](#requirements)
 * [Installation](#installation)
