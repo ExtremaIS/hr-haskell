@@ -2,7 +2,7 @@ name: CI
 on: [push]
 jobs:
   cabal-ci:
-    name: Cabal CI: GHC ${{ matrix.ghc }}
+    name: "Cabal CI: GHC ${{ matrix.ghc }}"
     runs-on: ubuntu-latest
     strategy:
       matrix:
