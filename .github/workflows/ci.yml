@@ -15,8 +15,6 @@ jobs:
         with:
           ghc-version: ${{ matrix.ghc }}
           cabal-version: latest
-      - name: Update Cabal
-        run: cabal update
       - name: Build
         run: cabal new-build --enable-tests --enable-benchmarks
       - name: Test
