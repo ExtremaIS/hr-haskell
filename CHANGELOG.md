@@ -28,8 +28,7 @@ following conventions:
 
 ### Non-Breaking
 
-* Remove Travis CI
-* Add GitHub Actions CI
+* Use GitHub Actions instead of Travis CI
 
 ## 0.1.0.2 (2020-11-05)
 

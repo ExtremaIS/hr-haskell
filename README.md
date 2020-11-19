@@ -1,5 +1,7 @@
 # hr
 
+[![GitHub CI](https://github.com/ExtremaIS/hr-haskell/workflows/CI/badge.svg?branch=main)](https://github.com/ExtremaIS/hr-haskell/actions)
+
 * [Overview](#overview)
 * [Requirements](#requirements)
 * [Installation](#installation)
