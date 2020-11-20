@@ -1,6 +1,6 @@
 # hr
 
-[![Build Status](https://travis-ci.com/ExtremaIS/hr-haskell.svg?branch=main)](https://travis-ci.com/ExtremaIS/hr-haskell)
+[![GitHub CI](https://github.com/ExtremaIS/hr-haskell/workflows/CI/badge.svg?branch=main)](https://github.com/ExtremaIS/hr-haskell/actions)
 
 * [Overview](#overview)
 * [Requirements](#requirements)
