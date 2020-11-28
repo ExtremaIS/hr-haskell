@@ -24,7 +24,7 @@ the last build.
 
 ## Requirements
 
-`hr` has only been tested on Linux.  It *might* work on Windows and OS X.
+`hr` has only been tested on Linux.  It *might* work on Windows and macOS.
 
 ## Installation
 
