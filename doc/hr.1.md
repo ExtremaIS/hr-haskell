@@ -68,7 +68,7 @@ GitHub:
 Reporting issues:
 :   GitHub: <https://github.com/ExtremaIS/hr-haskell/issues>
 
-    Email: <bugs@exgtrema.is>
+    Email: <bugs@extrema.is>
 
 Copyright
 :   Copyright (c) 2019-2020 Travis Cardwell
