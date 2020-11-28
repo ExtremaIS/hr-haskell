@@ -58,7 +58,7 @@ hyphenate: false
 :   no error
 
 2
-:   command line error
+:   command-line error
 
 # PROJECT
 
