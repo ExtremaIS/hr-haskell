@@ -26,6 +26,10 @@ following conventions:
 
 ## Unreleased
 
+### Non-Breaking
+
+* Add Cabal support to `Makefile`
+
 ## 0.1.0.3 (2020-11-21)
 
 ### Non-Breaking
