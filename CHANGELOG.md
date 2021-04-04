@@ -30,6 +30,7 @@ following conventions:
 
 * Add Cabal support to `Makefile`
 * Add Cabal tests to GitHub Actions
+* Add [stan](https://hackage.haskell.org/package/stan) static analysis
 
 ## 0.1.0.3 (2020-11-21)
 

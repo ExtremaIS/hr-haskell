@@ -33,6 +33,10 @@ source-repository head
   type: git
   location: https://github.com/ExtremaIS/hr-haskell.git
 
+flag write-hie
+  description: write .hie files
+  default: False
+
 executable hr
   main-is: hr.hs
   other-modules:
@@ -45,7 +49,10 @@ executable hr
     , terminal-size >=0.3 && <0.4
     , time >=1.8 && <1.10
   default-language: Haskell2010
-  ghc-options: -Wall
+  if flag(write-hie)
+    ghc-options: -Wall -fwrite-ide-info -hiedir=.hie
+  else
+    ghc-options: -Wall
 
 test-suite hr-test
   type: exitcode-stdio-1.0
