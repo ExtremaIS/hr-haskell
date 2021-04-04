@@ -28,6 +28,7 @@ following conventions:
 
 ### Non-Breaking
 
+* Add support for `optparse-applicative` `0.16`
 * Add Cabal support to `Makefile`
 * Add Cabal tests to GitHub Actions
 * Add [stan](https://hackage.haskell.org/package/stan) static analysis
