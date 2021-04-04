@@ -29,6 +29,7 @@ following conventions:
 ### Non-Breaking
 
 * Add Cabal support to `Makefile`
+* Add Cabal tests to GitHub Actions
 
 ## 0.1.0.3 (2020-11-21)
 
