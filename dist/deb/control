@@ -9,6 +9,6 @@ Vcs-browser: https://github.com/ExtremaIS/hr-haskell
 Homepage: https://github.com/ExtremaIS/hr-haskell#hr
 
 Package: hr-haskell
-Architecture: {ARCH}
+Architecture: {{ARCH}}
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: Horizontal rule for the terminal
