@@ -1,11 +1,14 @@
 # hr
 
+[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 [![GitHub CI](https://github.com/ExtremaIS/hr-haskell/workflows/CI/badge.svg?branch=main)](https://github.com/ExtremaIS/hr-haskell/actions)
 
 * [Overview](#overview)
 * [Requirements](#requirements)
 * [Installation](#installation)
     * [Installation From Source](#installation-from-source)
+    * [`.deb` Package Installation](#deb-package-installation)
+    * [`.rpm` Package Installation](#rpm-package-installation)
 * [Usage](#usage)
 * [Project](#project)
     * [Links](#links)
@@ -24,21 +27,34 @@ the last build.
 
 ## Requirements
 
-`hr` has only been tested on Linux.  It *might* work on Windows and OS X.
+`hr` has only been tested on Linux.  It *might* work on Windows and macOS.
 
 ## Installation
 
 ### Installation From Source
 
-`hr` can be built from source using [Stack](https://www.haskellstack.org).
-For example, you can install the latest release (to `~/.local/bin` on Linux)
+`hr` can be built from source using [Stack][].  For example, you can install
+the latest release (to `/usr/bin` on Linux) as follows:
 as follows:
 
 ```
 $ git clone https://github.com/ExtremaIS/hr-haskell.git
 $ cd hr-haskell
-$ stack install
+$ make
+$ sudo make install
 ```
+
+[Stack]: <https://www.haskellstack.org>
+
+#### `.deb` Package Installation
+
+Check the [Releases][] page for `.deb` packages.
+
+#### `.rpm` Package Installation
+
+Check the [Releases][] page for `.rpm` packages.
+
+[Releases]: <https://github.com/ExtremaIS/literatex-haskell/releases>
 
 ## Usage
 

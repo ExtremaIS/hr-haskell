@@ -58,7 +58,7 @@ hyphenate: false
 :   no error
 
 2
-:   command line error
+:   command-line error
 
 # PROJECT
 
@@ -68,10 +68,10 @@ GitHub:
 Reporting issues:
 :   GitHub: <https://github.com/ExtremaIS/hr-haskell/issues>
 
-    Email: <bugs@exgtrema.is>
+    Email: <bugs@extrema.is>
 
 Copyright
-:   Copyright (c) 2019-2020 Travis Cardwell
+:   Copyright (c) 2019-2021 Travis Cardwell
 
 License
 :   The MIT License <https://opensource.org/licenses/MIT>

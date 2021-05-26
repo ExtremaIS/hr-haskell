@@ -11,7 +11,3 @@
 ## Documentation
 
 ## Project
-
-* Nix derivation
-* `deb` package
-* `rpm` package
