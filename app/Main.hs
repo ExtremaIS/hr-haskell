@@ -16,8 +16,9 @@ module Main (main) where
 import Text.PrettyPrint.ANSI.Leijen (Doc)
 
 -- https://hackage.haskell.org/package/base
-import Control.Applicative (many)
+import Control.Applicative (many, optional)
 import Data.Maybe (maybeToList)
+import System.Timeout (timeout)
 
 -- https://hackage.haskell.org/package/optparse-applicative
 import qualified Options.Applicative as OA
@@ -38,36 +39,65 @@ import qualified HR
 ------------------------------------------------------------------------------
 -- $Constants
 
+defaultWidth :: Int
+defaultWidth = 80
+
 defaultFormat :: String
 defaultFormat = "%Y-%m-%d %H:%M:%S"
 
-defaultWidth :: Int
-defaultWidth = 80
+defaultTimeout :: Int
+defaultTimeout = 500
 
 ------------------------------------------------------------------------------
 -- $Options
 
 data Options
   = Options
-    { optAscii  :: !Bool
-    , optTime   :: !Bool
-    , optFormat :: !String
-    , optNote   :: !(Maybe String)
+    { optWidth   :: !(Maybe Int)
+    , optDefault :: !Int
+    , optAscii   :: !Bool
+    , optTime    :: !Bool
+    , optFormat  :: !String
+    , optInput   :: !Bool
+    , optTimeout :: !Int
+    , optNote    :: !(Maybe String)
     }
 
 options :: OA.Parser Options
 options =
     Options
-      <$> asciiOption
+      <$> optional widthOption
+      <*> defaultOption
+      <*> asciiOption
       <*> timeOption
       <*> formatOption
+      <*> inputOption
+      <*> timeoutOption
       <*> noteArguments
+
+widthOption :: OA.Parser Int
+widthOption = OA.option OA.auto $ mconcat
+    [ OA.long "width"
+    , OA.short 'w'
+    , OA.metavar "CHARS"
+    , OA.help "target rule width (default: terminal width)"
+    ]
+
+defaultOption :: OA.Parser Int
+defaultOption = OA.option OA.auto $ mconcat
+    [ OA.long "default"
+    , OA.short 'd'
+    , OA.metavar "CHARS"
+    , OA.value defaultWidth
+    , OA.showDefault
+    , OA.help "default target rule width"
+    ]
 
 asciiOption :: OA.Parser Bool
 asciiOption = OA.switch $ mconcat
     [ OA.long "ascii"
     , OA.short 'a'
-    , OA.help "use ASCII lines"
+    , OA.help "use ASCII lines (default: use Unicode lines)"
     ]
 
 timeOption :: OA.Parser Bool
@@ -85,6 +115,22 @@ formatOption = OA.strOption $ mconcat
     , OA.value defaultFormat
     , OA.showDefaultWith id
     , OA.help "time format"
+    ]
+
+inputOption :: OA.Parser Bool
+inputOption = OA.switch $ mconcat
+    [ OA.long "input"
+    , OA.short 'i'
+    , OA.help "read note from STDIN within MS milliseconds"
+    ]
+
+timeoutOption :: OA.Parser Int
+timeoutOption = OA.option OA.auto $ mconcat
+    [ OA.long "timeout"
+    , OA.metavar "MS"
+    , OA.value defaultTimeout
+    , OA.showDefault
+    , OA.help "timeout in milliseconds"
     ]
 
 noteArguments :: OA.Parser (Maybe String)
@@ -106,8 +152,19 @@ main = do
     mTime <- if optTime
       then Just . formatTime defaultTimeLocale optFormat <$> getZonedTime
       else pure Nothing
-    let hr = if optAscii then HR.putAutoAscii else HR.putAutoUnicode
-    hr defaultWidth $ T.pack <$> (maybeToList mTime ++ maybeToList optNote)
+    mInput <- if optInput
+      then timeout (optTimeout * 1000) getLine
+      else pure Nothing
+    let hr = case (optWidth, optAscii) of
+          (Nothing,    False) -> HR.putAutoUnicode optDefault
+          (Nothing,    True)  -> HR.putAutoAscii optDefault
+          (Just width, False) -> HR.putUnicode width
+          (Just width, True)  -> HR.putAscii width
+    hr . map T.pack $ concat
+      [ maybeToList mTime
+      , maybeToList optNote
+      , maybeToList mInput
+      ]
   where
     pinfo :: OA.ParserInfo Options
     pinfo
