@@ -26,6 +26,11 @@ following conventions:
 
 ## Unreleased
 
+### Non-Breaking
+
+* Fix link in README
+* Fix formatting in RPM description
+
 ## 0.2.0.0 (2021-05-26)
 
 ### Breaking
