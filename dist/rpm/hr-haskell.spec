@@ -13,7 +13,7 @@ Requires:      glibc,gmp
 %description
 hr is a utility for displaying a horizontal rule in a terminal.  It is useful
 for marking a position in your terminal so that you can easily find it again.
-For example, use `hr` to display a horizontal rule before each build of a
+For example, use hr to display a horizontal rule before each build of a
 project so that you can easily find the beginning of the output of the last
 build.
 
