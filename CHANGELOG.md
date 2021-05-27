@@ -26,6 +26,12 @@ following conventions:
 
 ## Unreleased
 
+### Breaking
+
+* Add library
+* Add `--width` and `--default` CLI options
+* Add `--input` and `--timeout` CLI options
+
 ## 0.2.0.1 (2021-05-27)
 
 ### Non-Breaking
