@@ -2,6 +2,9 @@
 
 [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 [![GitHub CI](https://github.com/ExtremaIS/hr-haskell/workflows/CI/badge.svg?branch=main)](https://github.com/ExtremaIS/hr-haskell/actions)
+[![Hackage](https://img.shields.io/hackage/v/hr.svg)](https://hackage.haskell.org/package/hr)
+[![Stackage LTS](https://stackage.org/package/hr/badge/lts)](https://stackage.org/package/hr)
+[![Stackage Nightly](https://stackage.org/package/hr/badge/nightly)](https://stackage.org/nightly/package/hr)
 
 * [Overview](#overview)
 * [Requirements](#requirements)
@@ -10,6 +13,7 @@
     * [`.deb` Package Installation](#deb-package-installation)
     * [`.rpm` Package Installation](#rpm-package-installation)
 * [Usage](#usage)
+    * [Examples](#examples)
 * [Project](#project)
     * [Links](#links)
     * [Releases](#releases)
@@ -59,6 +63,66 @@ Check the [Releases][] page for `.rpm` packages.
 ## Usage
 
 See the [`hr` man page](doc/hr.1.md) for usage information.
+
+### Examples
+
+The rule fills with width of the terminal by default:
+
+```
+$ hr
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+```
+
+In cases when the terminal width cannot be determined, a default width is
+used.  This default width can be set with an option:
+
+```
+$ hr -d 78
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+```
+
+If desired, the rule width can be specified:
+
+```
+$ hr -w 60
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+```
+
+In cases where the terminal cannot display Unicode, ASCII may be used:
+
+```
+$ hr -a
+------------------------------------------------------------------------------
+```
+
+The rule can include the current time:
+
+```
+$ hr -t
+━━┫2021-05-27 19:26:09┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+```
+
+The time format can be specified:
+
+```
+$ hr -t -f "%H:%M:%S.%q"
+━━┫19:30:44.861779179000┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+```
+
+The first line read from `STDIN` can be used as a note:
+
+```
+$ uname -m | hr -w 78 -i
+━━┫x86_64┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+```
+
+When input is read, a timeout is used to ensure that `hr` does not "hang" when
+there is not input.  The timeout (in milliseconds) can be specified:
+
+```
+$ uname -m | hr -w 78 -i --timeout 100
+━━┫x86_64┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+```
 
 ## Project
 
