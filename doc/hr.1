@@ -17,11 +17,17 @@ terminal.
 -h, --help
 show help and exit
 .TP
-\[en]version
+--version
 show version and exit
 .TP
+-w, --width \f[I]CHARS\f[R]
+target rule width (default: terminal width)
+.TP
+-d, --default \f[I]CHARS\f[R]
+default target rule width (default: 80)
+.TP
 -a, --ascii
-use ASCII lines
+use ASCII lines (default: use Unicode lines)
 .TP
 -t, --time
 show time
@@ -54,6 +60,12 @@ The following format codes are supported:
 .IP \[bu] 2
 \f[C]%z\f[R] - UTC offset
 .RE
+.TP
+-i, --input
+read note from STDIN within MS milliseconds
+.TP
+--timeout \f[I]MS\f[R]
+timeout in milliseconds (default: 500)
 .SH ARGUMENTS
 .TP
 \f[I]NOTE\f[R]

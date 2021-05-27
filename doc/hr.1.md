@@ -21,11 +21,17 @@ hyphenate: false
 -h, \--help
 :   show help and exit
 
---version
+\--version
 :   show version and exit
 
+-w, \--width *CHARS*
+:   target rule width (default: terminal width)
+
+-d, \--default *CHARS*
+:   default target rule width (default: 80)
+
 -a, \--ascii
-:   use ASCII lines
+:   use ASCII lines (default: use Unicode lines)
 
 -t, \--time
 :   show time
@@ -46,6 +52,12 @@ hyphenate: false
     * `%S` - two-digit second
     * `%f` - six-digit microsecond
     * `%z` - UTC offset
+
+-i, \--input
+:   read note from STDIN within MS milliseconds
+
+\--timeout *MS*
+:   timeout in milliseconds (default: 500)
 
 # ARGUMENTS
 
