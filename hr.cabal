@@ -56,21 +56,19 @@ library
     ghc-options: -Wall
 
 executable hr
-  main-is: hr.hs
+  hs-source-dirs: app
+  main-is: Main.hs
   other-modules:
       LibOA
-    , Paths_hr
   build-depends:
       ansi-wl-pprint >=0.6 && <0.7
-    , base >=4.7 && <5
+    , base
+    , hr
     , optparse-applicative >=0.14 && <0.17
-    , terminal-size >=0.3 && <0.4
+    , text
     , time >=1.8 && <1.10
   default-language: Haskell2010
-  if flag(write-hie)
-    ghc-options: -Wall -fwrite-ide-info -hiedir=.hie
-  else
-    ghc-options: -Wall
+  ghc-options: -Wall
 
 test-suite hr-test
   type: exitcode-stdio-1.0

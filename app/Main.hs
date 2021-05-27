@@ -8,7 +8,6 @@
 -- See the README for details.
 ------------------------------------------------------------------------------
 
-{-# LANGUAGE LambdaCase #-}
 {-# LANGUAGE RecordWildCards #-}
 
 module Main (main) where
@@ -18,57 +17,36 @@ import Text.PrettyPrint.ANSI.Leijen (Doc)
 
 -- https://hackage.haskell.org/package/base
 import Control.Applicative (many)
-import Data.List (intercalate)
 import Data.Maybe (maybeToList)
-import Data.Version (showVersion)
 
 -- https://hackage.haskell.org/package/optparse-applicative
 import qualified Options.Applicative as OA
 
--- https://hackage.haskell.org/package/terminal-size
-import qualified System.Console.Terminal.Size as Terminal
+-- https://hackage.haskell.org/package/text
+import qualified Data.Text as T
 
 -- https://hackage.haskell.org/package/time
 import Data.Time.Format (defaultTimeLocale, formatTime)
 import Data.Time.LocalTime (getZonedTime)
 
--- (hr:cabal)
-import qualified Paths_hr as Project
-
 -- (hr:executable)
 import qualified LibOA
 
-------------------------------------------------------------------------------
+-- (hr)
+import qualified HR
 
--- | Default time format
+------------------------------------------------------------------------------
+-- $Constants
+
 defaultFormat :: String
 defaultFormat = "%Y-%m-%d %H:%M:%S"
 
--- | Default terminal width
 defaultWidth :: Int
 defaultWidth = 80
 
 ------------------------------------------------------------------------------
+-- $Options
 
--- | Render a horizontal rule
-hr :: Bool -> Int -> [String] -> String
-hr ascii width = \case
-    [] -> replicate width rule_fill
-    notes ->
-      let rule = rule_left ++ intercalate rule_mid notes ++ rule_right
-          rule_len = length rule
-      in  if rule_len < width
-            then rule ++ replicate (width - rule_len) rule_fill
-            else rule
-  where
-    rule_left = if ascii then "--|" else "━━┫"
-    rule_mid = if ascii then "|-|" else "┣━┫"
-    rule_right = if ascii then "|--" else "┣━━"
-    rule_fill = if ascii then '-' else '━'
-
-------------------------------------------------------------------------------
-
--- | Command-line options
 data Options
   = Options
     { optAscii  :: !Bool
@@ -76,7 +54,6 @@ data Options
     , optFormat :: !String
     , optNote   :: !(Maybe String)
     }
-  deriving Show
 
 options :: OA.Parser Options
 options =
@@ -121,6 +98,7 @@ noteArguments = fmap mjoin . many . OA.strArgument $ mconcat
     mjoin ss = Just $ unwords ss
 
 ------------------------------------------------------------------------------
+-- $Main
 
 main :: IO ()
 main = do
@@ -128,21 +106,18 @@ main = do
     mTime <- if optTime
       then Just . formatTime defaultTimeLocale optFormat <$> getZonedTime
       else pure Nothing
-    width <- maybe defaultWidth Terminal.width <$> Terminal.size
-    putStrLn . hr optAscii width $ maybeToList mTime ++ maybeToList optNote
+    let hr = if optAscii then HR.putAutoAscii else HR.putAutoUnicode
+    hr defaultWidth $ T.pack <$> (maybeToList mTime ++ maybeToList optNote)
   where
     pinfo :: OA.ParserInfo Options
     pinfo
-      = OA.info (LibOA.helper <*> LibOA.versioner version <*> options)
+      = OA.info (LibOA.helper <*> LibOA.versioner HR.version <*> options)
       $ mconcat
           [ OA.fullDesc
           , OA.progDesc "horizontal rule for the terminal"
           , OA.failureCode 2
           , OA.footerDoc $ Just formatHelp
           ]
-
-    version :: String
-    version = "hr-haskell " ++ showVersion Project.version
 
     formatHelp :: Doc
     formatHelp = LibOA.section "FORMAT codes:" $ LibOA.table
