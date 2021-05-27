@@ -112,7 +112,7 @@ $ hr -t -f "%H:%M:%S.%q"
 The first line read from `STDIN` can be used as a note:
 
 ```
-$ uname -m | hr -w 78 -i
+$ uname -m | hr -i
 ━━┫x86_64┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
@@ -120,8 +120,22 @@ When input is read, a timeout is used to ensure that `hr` does not "hang" when
 there is not input.  The timeout (in milliseconds) can be specified:
 
 ```
-$ uname -m | hr -w 78 -i --timeout 100
+$ uname -m | hr -i --timeout 100
 ━━┫x86_64┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+```
+
+A note can be specified as one or more arguments:
+
+```
+$ hr unit tests
+━━┫unit tests┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+```
+
+Different types of notes can be combined:
+
+```
+$ uname -m | hr -it unit tests
+━━┫2021-05-27 19:48:48┣━┫unit tests┣━┫x86_64┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
 ## Project
