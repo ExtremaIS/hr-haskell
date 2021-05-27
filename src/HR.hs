@@ -111,10 +111,14 @@ render
 render Parts{..} width = \case
     [] -> T.pack $ replicate width fillPart
     notes ->
-      let rule = leftPart <> T.intercalate midPart notes <> rightPart
+      let rule = T.concat
+            [ leftPart
+            , T.intercalate midPart notes
+            , rightPart
+            ]
       in  case max 0 (width - T.length rule) of
             0         -> rule
-            fillWidth -> rule <> T.pack (replicate fillWidth fillPart)
+            fillWidth -> rule `T.append` T.pack (replicate fillWidth fillPart)
 
 -- | Render an ASCII horizontal rule
 --
