@@ -144,7 +144,7 @@ $ uname -m | hr -it unit tests
 
 ## Library
 
-The [hr Haskell library[] provides an API for easily including horizontal
+The [hr Haskell library][] provides an API for easily including horizontal
 rules in the output of your own software.
 
 [hr Haskell library]: <https://hackage.haskell.org/package/hr>
