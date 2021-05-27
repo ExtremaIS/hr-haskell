@@ -62,9 +62,6 @@ See the [`hr` man page](doc/hr.1.md) for usage information.
 
 ## Project
 
-`hr` was written quickly to solve a particular pain point.  There are no plans
-to expose a library or put the package on Hackage.
-
 ### Links
 
 * GitHub: <https://github.com/ExtremaIS/hr-haskell>
