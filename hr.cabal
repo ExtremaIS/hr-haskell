@@ -37,6 +37,24 @@ flag write-hie
   description: write .hie files
   default: False
 
+library
+  hs-source-dirs: src
+  exposed-modules:
+      HR
+  other-modules:
+      Paths_hr
+  build-depends:
+      base >=4.7 && <5
+    , terminal-size >=0.3 && <0.4
+    , text >=1.2.3 && <1.3
+  default-language: Haskell2010
+  default-extensions:
+      OverloadedStrings
+  if flag(write-hie)
+    ghc-options: -Wall -fwrite-ide-info -hiedir=.hie
+  else
+    ghc-options: -Wall
+
 executable hr
   main-is: hr.hs
   other-modules:
@@ -58,7 +76,12 @@ test-suite hr-test
   type: exitcode-stdio-1.0
   hs-source-dirs: test
   main-is: Spec.hs
+  other-modules:
+      HR.Test
   build-depends:
       base
+    , hr
+    , tasty >=1.0 && <1.5
+    , tasty-hunit >=0.10 && <0.11
   default-language: Haskell2010
-  ghc-options: -Wall
+  ghc-options: -Wall -threaded -rtsopts -with-rtsopts=-N
