@@ -187,6 +187,6 @@ main = do
       , ("%p", "locale equivalent of AM or PM")
       , ("%M", "two-digit minute")
       , ("%S", "two-digit second")
-      , ("%f", "six-digit microsecond")
+      , ("%q", "twelve-digit picosecond")
       , ("%z", "UTC offset")
       ]
