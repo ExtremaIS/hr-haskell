@@ -1,5 +1,5 @@
 name:           hr
-version:        0.2.0.1
+version:        0.3.0.0
 category:       Utils
 synopsis:       horizontal rule for the terminal
 description:
@@ -37,28 +37,49 @@ flag write-hie
   description: write .hie files
   default: False
 
-executable hr
-  main-is: hr.hs
+library
+  hs-source-dirs: src
+  exposed-modules:
+      HR
   other-modules:
-      LibOA
-    , Paths_hr
+      Paths_hr
   build-depends:
-      ansi-wl-pprint >=0.6 && <0.7
-    , base >=4.7 && <5
-    , optparse-applicative >=0.14 && <0.17
+      base >=4.7 && <5
     , terminal-size >=0.3 && <0.4
-    , time >=1.8 && <1.10
+    , text >=1.2.3 && <1.3
   default-language: Haskell2010
+  default-extensions:
+      OverloadedStrings
   if flag(write-hie)
     ghc-options: -Wall -fwrite-ide-info -hiedir=.hie
   else
     ghc-options: -Wall
 
+executable hr
+  hs-source-dirs: app
+  main-is: Main.hs
+  other-modules:
+      LibOA
+  build-depends:
+      ansi-wl-pprint >=0.6 && <0.7
+    , base
+    , hr
+    , optparse-applicative >=0.14 && <0.17
+    , text
+    , time >=1.8 && <1.10
+  default-language: Haskell2010
+  ghc-options: -Wall
+
 test-suite hr-test
   type: exitcode-stdio-1.0
   hs-source-dirs: test
   main-is: Spec.hs
+  other-modules:
+      HR.Test
   build-depends:
       base
+    , hr
+    , tasty >=1.0 && <1.5
+    , tasty-hunit >=0.10 && <0.11
   default-language: Haskell2010
-  ghc-options: -Wall
+  ghc-options: -Wall -threaded -rtsopts -with-rtsopts=-N

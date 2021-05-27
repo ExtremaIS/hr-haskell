@@ -24,6 +24,14 @@ following conventions:
 
 [KaC]: <https://keepachangelog.com/en/1.0.0/>
 
+## 0.3.0.0 (2021-05-28)
+
+### Breaking
+
+* Add library
+* Add `--width` and `--default` CLI options
+* Add `--input` and `--timeout` CLI options
+
 ## 0.2.0.1 (2021-05-27)
 
 ### Non-Breaking

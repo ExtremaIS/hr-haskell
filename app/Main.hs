@@ -8,7 +8,6 @@
 -- See the README for details.
 ------------------------------------------------------------------------------
 
-{-# LANGUAGE LambdaCase #-}
 {-# LANGUAGE RecordWildCards #-}
 
 module Main (main) where
@@ -17,80 +16,88 @@ module Main (main) where
 import Text.PrettyPrint.ANSI.Leijen (Doc)
 
 -- https://hackage.haskell.org/package/base
-import Control.Applicative (many)
-import Data.List (intercalate)
+import Control.Applicative (many, optional)
 import Data.Maybe (maybeToList)
-import Data.Version (showVersion)
+import System.Timeout (timeout)
 
 -- https://hackage.haskell.org/package/optparse-applicative
 import qualified Options.Applicative as OA
 
--- https://hackage.haskell.org/package/terminal-size
-import qualified System.Console.Terminal.Size as Terminal
+-- https://hackage.haskell.org/package/text
+import qualified Data.Text as T
 
 -- https://hackage.haskell.org/package/time
 import Data.Time.Format (defaultTimeLocale, formatTime)
 import Data.Time.LocalTime (getZonedTime)
 
--- (hr:cabal)
-import qualified Paths_hr as Project
-
 -- (hr:executable)
 import qualified LibOA
 
+-- (hr)
+import qualified HR
+
 ------------------------------------------------------------------------------
+-- $Constants
 
--- | Default time format
-defaultFormat :: String
-defaultFormat = "%Y-%m-%d %H:%M:%S"
-
--- | Default terminal width
 defaultWidth :: Int
 defaultWidth = 80
 
-------------------------------------------------------------------------------
+defaultFormat :: String
+defaultFormat = "%Y-%m-%d %H:%M:%S"
 
--- | Render a horizontal rule
-hr :: Bool -> Int -> [String] -> String
-hr ascii width = \case
-    [] -> replicate width rule_fill
-    notes ->
-      let rule = rule_left ++ intercalate rule_mid notes ++ rule_right
-          rule_len = length rule
-      in  if rule_len < width
-            then rule ++ replicate (width - rule_len) rule_fill
-            else rule
-  where
-    rule_left = if ascii then "--|" else "━━┫"
-    rule_mid = if ascii then "|-|" else "┣━┫"
-    rule_right = if ascii then "|--" else "┣━━"
-    rule_fill = if ascii then '-' else '━'
+defaultTimeout :: Int
+defaultTimeout = 500
 
 ------------------------------------------------------------------------------
+-- $Options
 
--- | Command-line options
 data Options
   = Options
-    { optAscii  :: !Bool
-    , optTime   :: !Bool
-    , optFormat :: !String
-    , optNote   :: !(Maybe String)
+    { optWidth   :: !(Maybe Int)
+    , optDefault :: !Int
+    , optAscii   :: !Bool
+    , optTime    :: !Bool
+    , optFormat  :: !String
+    , optInput   :: !Bool
+    , optTimeout :: !Int
+    , optNote    :: !(Maybe String)
     }
-  deriving Show
 
 options :: OA.Parser Options
 options =
     Options
-      <$> asciiOption
+      <$> optional widthOption
+      <*> defaultOption
+      <*> asciiOption
       <*> timeOption
       <*> formatOption
+      <*> inputOption
+      <*> timeoutOption
       <*> noteArguments
+
+widthOption :: OA.Parser Int
+widthOption = OA.option OA.auto $ mconcat
+    [ OA.long "width"
+    , OA.short 'w'
+    , OA.metavar "CHARS"
+    , OA.help "target rule width (default: terminal width)"
+    ]
+
+defaultOption :: OA.Parser Int
+defaultOption = OA.option OA.auto $ mconcat
+    [ OA.long "default"
+    , OA.short 'd'
+    , OA.metavar "CHARS"
+    , OA.value defaultWidth
+    , OA.showDefault
+    , OA.help "default target rule width"
+    ]
 
 asciiOption :: OA.Parser Bool
 asciiOption = OA.switch $ mconcat
     [ OA.long "ascii"
     , OA.short 'a'
-    , OA.help "use ASCII lines"
+    , OA.help "use ASCII lines (default: use Unicode lines)"
     ]
 
 timeOption :: OA.Parser Bool
@@ -110,6 +117,22 @@ formatOption = OA.strOption $ mconcat
     , OA.help "time format"
     ]
 
+inputOption :: OA.Parser Bool
+inputOption = OA.switch $ mconcat
+    [ OA.long "input"
+    , OA.short 'i'
+    , OA.help "read note from STDIN within MS milliseconds"
+    ]
+
+timeoutOption :: OA.Parser Int
+timeoutOption = OA.option OA.auto $ mconcat
+    [ OA.long "timeout"
+    , OA.metavar "MS"
+    , OA.value defaultTimeout
+    , OA.showDefault
+    , OA.help "timeout in milliseconds"
+    ]
+
 noteArguments :: OA.Parser (Maybe String)
 noteArguments = fmap mjoin . many . OA.strArgument $ mconcat
     [ OA.metavar "NOTE ..."
@@ -121,6 +144,7 @@ noteArguments = fmap mjoin . many . OA.strArgument $ mconcat
     mjoin ss = Just $ unwords ss
 
 ------------------------------------------------------------------------------
+-- $Main
 
 main :: IO ()
 main = do
@@ -128,21 +152,29 @@ main = do
     mTime <- if optTime
       then Just . formatTime defaultTimeLocale optFormat <$> getZonedTime
       else pure Nothing
-    width <- maybe defaultWidth Terminal.width <$> Terminal.size
-    putStrLn . hr optAscii width $ maybeToList mTime ++ maybeToList optNote
+    mInput <- if optInput
+      then timeout (optTimeout * 1000) getLine
+      else pure Nothing
+    let hr = case (optWidth, optAscii) of
+          (Nothing,    False) -> HR.putAutoUnicode optDefault
+          (Nothing,    True)  -> HR.putAutoAscii optDefault
+          (Just width, False) -> HR.putUnicode width
+          (Just width, True)  -> HR.putAscii width
+    hr . map T.pack $ concat
+      [ maybeToList mTime
+      , maybeToList optNote
+      , maybeToList mInput
+      ]
   where
     pinfo :: OA.ParserInfo Options
     pinfo
-      = OA.info (LibOA.helper <*> LibOA.versioner version <*> options)
+      = OA.info (LibOA.helper <*> LibOA.versioner HR.version <*> options)
       $ mconcat
           [ OA.fullDesc
           , OA.progDesc "horizontal rule for the terminal"
           , OA.failureCode 2
           , OA.footerDoc $ Just formatHelp
           ]
-
-    version :: String
-    version = "hr-haskell " ++ showVersion Project.version
 
     formatHelp :: Doc
     formatHelp = LibOA.section "FORMAT codes:" $ LibOA.table
@@ -155,6 +187,6 @@ main = do
       , ("%p", "locale equivalent of AM or PM")
       , ("%M", "two-digit minute")
       , ("%S", "two-digit second")
-      , ("%f", "six-digit microsecond")
+      , ("%q", "twelve-digit picosecond")
       , ("%z", "UTC offset")
       ]
