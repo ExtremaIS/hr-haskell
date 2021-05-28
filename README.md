@@ -38,9 +38,9 @@ the last build.
 
 #### Installation From Source
 
-`hr` can be built from source using [Stack][].  For example, you can install
-the latest release (to `/usr/bin` on Linux) as follows:
-as follows:
+`hr` can be built from source using [Stack](https://www.haskellstack.org).
+For example, you can install the latest release (to `/usr/bin` on Linux) as
+follows:
 
 ```
 $ git clone https://github.com/ExtremaIS/hr-haskell.git
@@ -48,8 +48,6 @@ $ cd hr-haskell
 $ make
 $ sudo make install
 ```
-
-[Stack]: <https://www.haskellstack.org>
 
 ##### `.deb` Package Installation
 
@@ -145,8 +143,9 @@ You can easily include horizontal rules in the output of your own Haskell
 software by using the library.  The `hr` package is *not* in Hackage, however,
 so you need to get it from the GitHub repository.
 
-[Stack][] users can add the dependency in `extra-deps` of the `stack.yaml`
-file, specifying the commit hash for the release.  Example:
+[Stack](https://www.haskellstack.org) users can add the dependency in
+`extra-deps` of the `stack.yaml` file, specifying the commit hash for the
+release.  Example:
 
 ```
 resolver: lts-17.13
@@ -159,9 +158,10 @@ extra-deps:
     commit: e48bb5047c53de29c45488a56ee35689fa59b0a1
 ```
 
-[Cabal][] users can add the dependency as a `source-repository-package` of the
-`cabal.project` file, specifying the commit hash for the release as "`tag`".
-(This feature is available from Cabal 2.4.)  Example:
+[Cabal](https://www.haskell.org/cabal/) users can add the dependency as a
+`source-repository-package` of the `cabal.project` file, specifying the commit
+hash for the release as "`tag`".  (This feature is available from Cabal 2.4.)
+Example:
 
 ```
 packages: .
@@ -172,10 +172,7 @@ source-repository-package
     tag: e48bb5047c53de29c45488a56ee35689fa59b0a1
 ```
 
-A minimal example is provided in the [`example`][example] directory.
-
-[Stack]: <https://www.haskellstack.org>
-[Cabal]: <https://www.haskell.org/cabal/>
+A minimal example is provided in the [`example`](example) directory.
 
 ## Project
 
