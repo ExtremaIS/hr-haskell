@@ -92,19 +92,20 @@ checksums: # calculate checksums of build artifacts
 
 clean: # clean package
 ifeq ($(MODE), cabal)
-> @rm -rf dist-newstyle
+> @rm -rf dist-newstyle example/dist-newstyle
 else
 > @stack clean
+> @cd example && stack clean
 endif
 .PHONY: clean
 
-clean-all: clean # clean package and remove artifacts
+clean-all: clean
+clean-all: # clean package and remove artifacts
 > @rm -rf .hie
-> @rm -rf .stack-work
+> @rm -rf .stack-work example/.stack-work
 > @rm -rf build
-> @rm -rf dist-newstyle
-> @rm -f *.yaml.lock
-> @rm -f cabal.project.local
+> @rm -f *.yaml.lock example/*.yaml.lock
+> @rm -f cabal.project.local example/cabal.project.local
 .PHONY: clean-all
 
 deb: # build .deb package for VERSION in a Debian container

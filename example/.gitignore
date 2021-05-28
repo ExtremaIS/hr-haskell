@@ -1,0 +1,11 @@
+# stack
+.stack-work
+*.yaml.lock
+
+# cabal
+cabal.project.local
+cabal.project.local~
+/dist-newstyle/
+
+# vi
+.*.swp

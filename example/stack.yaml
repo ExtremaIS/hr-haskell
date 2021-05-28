@@ -1,0 +1,8 @@
+resolver: lts-17.13
+
+packages:
+  - .
+
+extra-deps:
+  - github: ExtremaIS/hr-haskell
+    commit: e48bb5047c53de29c45488a56ee35689fa59b0a1
