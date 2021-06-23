@@ -1,11 +1,14 @@
-# stack
-.stack-work
-*.yaml.lock
-
 # cabal
 cabal.project.local
 cabal.project.local~
 /dist-newstyle/
+
+# nix
+result*
+
+# stack
+.stack-work
+*.yaml.lock
 
 # vi
 .*.swp

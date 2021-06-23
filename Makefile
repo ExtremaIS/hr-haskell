@@ -104,8 +104,10 @@ clean-all: # clean package and remove artifacts
 > @rm -rf .hie
 > @rm -rf .stack-work example/.stack-work
 > @rm -rf build
+> @rm -rf dist-newstyle example/dist-newstyle
 > @rm -f *.yaml.lock example/*.yaml.lock
 > @rm -f cabal.project.local example/cabal.project.local
+> @rm -f result* example/result*
 .PHONY: clean-all
 
 deb: # build .deb package for VERSION in a Debian container
