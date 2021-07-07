@@ -39,7 +39,7 @@ the last build.
 #### Installation From Source
 
 `hr` can be built from source using [Stack](https://www.haskellstack.org).
-For example, you can install the latest release (to `/usr/bin` on Linux) as
+For example, you can install the latest release (to `/usr/local` on Linux) as
 follows:
 
 ```
