@@ -177,16 +177,16 @@ main = do
           ]
 
     formatHelp :: Doc
-    formatHelp = LibOA.section "FORMAT codes:" $ LibOA.table
-      [ ("%Y", "four-digit year")
-      , ("%y", "two-digit year")
-      , ("%m", "two-digit month")
-      , ("%d", "two-digit day")
-      , ("%H", "two-digit hour using 24-hour clock")
-      , ("%I", "two-digit hour using 12-hour clock")
-      , ("%p", "locale equivalent of AM or PM")
-      , ("%M", "two-digit minute")
-      , ("%S", "two-digit second")
-      , ("%q", "twelve-digit picosecond")
-      , ("%z", "UTC offset")
+    formatHelp = LibOA.section "FORMAT codes:" $ LibOA.table_ 2
+      [ ["%Y", "four-digit year"]
+      , ["%y", "two-digit year"]
+      , ["%m", "two-digit month"]
+      , ["%d", "two-digit day"]
+      , ["%H", "two-digit hour using 24-hour clock"]
+      , ["%I", "two-digit hour using 12-hour clock"]
+      , ["%p", "locale equivalent of AM or PM"]
+      , ["%M", "two-digit minute"]
+      , ["%S", "two-digit second"]
+      , ["%q", "twelve-digit picosecond"]
+      , ["%z", "UTC offset"]
       ]
