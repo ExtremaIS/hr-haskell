@@ -76,7 +76,7 @@ in
     root = gitIgnore [./.gitignore] ./.;
     name = "literatex";
     source-overrides = {
-      hr = githubTagTarball "ExtremaIS" "hr-haskell" "hr-haskell-0.3.0.1";
+      hr = githubTagTarball "ExtremaIS" "hr-haskell" "hr-haskell-0.4.0.0";
     };
     modifier = drv:
       if isShell

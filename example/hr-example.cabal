@@ -11,7 +11,7 @@ build-type:     Simple
 extra-source-files:
   README.md
 
-executable hr-demo
+executable hr-example
   main-is: Main.hs
   build-depends:
       base

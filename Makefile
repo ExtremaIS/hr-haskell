@@ -147,6 +147,14 @@ else
 endif
 .PHONY: doc-api
 
+example: # build and run example *
+ifeq ($(MODE), cabal)
+> @cd example && cabal v2-build $(CABAL_ARGS) && cabal v2-run hr-example
+else
+> @cd example && stack build $(STACK_ARGS) && stack exec hr-example
+endif
+.PHONY: example
+
 grep: # grep all non-hidden files for expression E
 > $(eval E:= "")
 > @test -n "$(E)" || $(call die,"usage: make grep E=expression")
