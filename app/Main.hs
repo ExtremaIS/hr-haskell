@@ -2,7 +2,7 @@
 -- |
 -- Module      : Main
 -- Description : hr: a horizontal rule for terminals
--- Copyright   : Copyright (c) 2019-2021 Travis Cardwell
+-- Copyright   : Copyright (c) 2019-2022 Travis Cardwell
 -- License     : MIT
 --
 -- See the README for details.
