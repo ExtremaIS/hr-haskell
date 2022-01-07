@@ -42,6 +42,7 @@ library
   hs-source-dirs: src
   exposed-modules:
       HR
+    , HR.Monad.Terminal
   other-modules:
       Paths_hr
   build-depends:

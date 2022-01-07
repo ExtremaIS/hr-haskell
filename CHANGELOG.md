@@ -26,6 +26,10 @@ following conventions:
 
 ## Unreleased
 
+### Breaking
+
+* Refactor API to use `MonadTerminal` instead of `IO` directly
+
 ## 0.4.0.0 (2021-06-25)
 
 ### Breaking
