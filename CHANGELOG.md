@@ -30,6 +30,10 @@ following conventions:
 
 * Refactor API to use `MonadTerminal` instead of `IO` directly
 
+### Non-Breaking
+
+* Add mock tests
+
 ## 0.4.0.0 (2021-06-25)
 
 ### Breaking

@@ -83,5 +83,10 @@ test-suite hr-test
     , hr
     , tasty >=1.0 && <1.5
     , tasty-hunit >=0.10 && <0.11
+  if impl(ghc >= 8.6.1)
+    other-modules:
+        HR.Mock
+    build-depends:
+        HMock >=0.5.1 && <0.6
   default-language: Haskell2010
   ghc-options: -Wall -threaded -rtsopts -with-rtsopts=-N
