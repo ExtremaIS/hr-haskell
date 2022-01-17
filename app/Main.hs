@@ -30,11 +30,11 @@ import qualified Data.Text as T
 import Data.Time.Format (defaultTimeLocale, formatTime)
 import Data.Time.LocalTime (getZonedTime)
 
--- (hr:executable)
-import qualified LibOA
-
--- (hr)
+-- (horizontal-rule)
 import qualified HR
+
+-- (horizontal-rule:executable)
+import qualified LibOA
 
 ------------------------------------------------------------------------------
 -- $Constants

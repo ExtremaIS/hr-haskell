@@ -1,9 +1,9 @@
 ##############################################################################
 # Project configuration
 
-PACKAGE     := hr
+PACKAGE     := horizontal-rule
 CABAL_FILE  := $(PACKAGE).cabal
-PROJECT     := $(PACKAGE)-haskell
+PROJECT     := hr-haskell
 EXECUTABLES := hr
 
 MODE ?= stack

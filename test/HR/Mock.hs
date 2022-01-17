@@ -21,7 +21,7 @@ import Test.Tasty (TestTree, testGroup)
 -- https://hackage.haskell.org/package/tasty-hunit
 import Test.Tasty.HUnit (testCase)
 
--- (hr)
+-- (horizontal-rule)
 import qualified HR
 import HR.Monad.Terminal (MonadTerminal(..))
 

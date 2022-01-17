@@ -45,12 +45,12 @@ import Data.Version (showVersion)
 import qualified Data.Text as T
 import Data.Text (Text)
 
--- (hr)
+-- (horizontal-rule)
 import qualified HR.Monad.Terminal as Terminal
 import HR.Monad.Terminal (MonadTerminal)
 
--- (hr:cabal)
-import qualified Paths_hr as Project
+-- (horizontal-rule:cabal)
+import qualified Paths_horizontal_rule as Project
 
 ------------------------------------------------------------------------------
 -- $Constants

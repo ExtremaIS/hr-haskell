@@ -5,7 +5,7 @@ module Main (main) where
 -- https://hackage.haskell.org/package/tasty
 import Test.Tasty (defaultMain, testGroup)
 
--- (hr:test)
+-- (horizontal-rule:test)
 import qualified HR.Test
 #if __GLASGOW_HASKELL__ >= 806
 import qualified HR.Mock

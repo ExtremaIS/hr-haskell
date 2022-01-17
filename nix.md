@@ -5,7 +5,7 @@ project.
 
 I hope to get it working sometime in the future.  My goals/requirements are to
 be able to do all of the following with all of the GHC versions listed in the
-`tested-with` section of the `hr.cabal` file:
+`tested-with` section of the `horizontal-rule.cabal` file:
 
 * build executables (for usage via Nix/NixOS)
 * run the tests
