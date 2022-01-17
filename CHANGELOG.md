@@ -28,6 +28,7 @@ following conventions:
 
 ### Breaking
 
+* Rename Haskell package to `horizontal-rule`
 * Refactor API to use `MonadTerminal` instead of `IO` directly
 
 ### Non-Breaking
