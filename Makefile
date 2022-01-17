@@ -124,22 +124,21 @@ checksums: # calculate checksums of build artifacts
 
 clean: # clean package
 ifeq ($(MODE), cabal)
-> @rm -rf dist-newstyle example/dist-newstyle
+> @rm -rf dist-newstyle
 else
 > @stack clean
-> @cd example && stack clean
 endif
 .PHONY: clean
 
 clean-all: clean
 clean-all: # clean package and remove artifacts
 > @rm -rf .hie
-> @rm -rf .stack-work example/.stack-work
+> @rm -rf .stack-work
 > @rm -rf build
-> @rm -rf dist-newstyle example/dist-newstyle
-> @rm -f *.yaml.lock example/*.yaml.lock
-> @rm -f cabal.project.local example/cabal.project.local
-> @rm -f result* example/result*
+> @rm -rf dist-newstyle
+> @rm -f *.yaml.lock
+> @rm -f cabal.project.local
+> @rm -f result*
 .PHONY: clean-all
 
 coverage: hr
@@ -174,14 +173,6 @@ else
 > stack haddock $(STACK_ARGS)
 endif
 .PHONY: doc-api
-
-example: # build and run example
-ifeq ($(MODE), cabal)
-> @cd example && cabal v2-build && cabal v2-run hr-example
-else
-> @cd example && stack build  && stack exec hr-example
-endif
-.PHONY: example
 
 grep: # grep all non-hidden files for expression E
 > $(eval E:= "")

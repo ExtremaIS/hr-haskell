@@ -1,7 +1,0 @@
-packages:
-    ./hr-example.cabal
-
-source-repository-package
-    type: git
-    location: https://github.com/ExtremaIS/hr-haskell.git
-    tag: 5e6748c336885027413c7b190896f1cbdb78d7d6
