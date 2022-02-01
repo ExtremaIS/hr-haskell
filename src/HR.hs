@@ -55,7 +55,9 @@ import qualified Paths_horizontal_rule as Project
 ------------------------------------------------------------------------------
 -- $Constants
 
--- | Package version
+-- | hr version string (\"@hr-haskell X.X.X.X@\")
+--
+-- @since 0.3.0.0
 version :: String
 version = "hr-haskell " ++ showVersion Project.version
 

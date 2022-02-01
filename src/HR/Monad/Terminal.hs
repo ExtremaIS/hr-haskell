@@ -1,7 +1,7 @@
 ------------------------------------------------------------------------------
 -- |
 -- Module      : HR.Monad.Terminal
--- Description : terminal effects
+-- Description : terminal output
 -- Copyright   : Copyright (c) 2019-2022 Travis Cardwell
 -- License     : MIT
 ------------------------------------------------------------------------------
@@ -21,7 +21,9 @@ import qualified Data.Text.IO as TIO
 ------------------------------------------------------------------------------
 -- $MonadTerminal
 
--- | Terminal effects
+-- | Terminal output
+--
+-- @since 0.5.0.0
 class Monad m => MonadTerminal m where
   -- | Get the width of the terminal, if possible
   getWidth :: m (Maybe Int)
