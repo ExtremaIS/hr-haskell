@@ -36,6 +36,7 @@ following conventions:
 * Add mock tests
 * Bump `text` dependency version upper bound
 * Bump `time` dependency version upper bound
+* Bump `optparse-applicative` dependency version upper bound
 
 ## 0.4.0.0 (2021-06-25)
 

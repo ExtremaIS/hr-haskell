@@ -23,13 +23,13 @@ extra-deps:
   - dlist-1.0
   - explainable-predicates-0.1.2.1
   - extra-1.7.10
-  - hashable-1.4.0.1
+  - hashable-1.4.0.2
   - HMock-0.5.1.0
   - HUnit-1.6.2.0
   - monad-control-1.0.3.1
   - mono-traversable-1.0.15.3
   - old-locale-1.0.0.7
-  - optparse-applicative-0.16.1.0
+  - optparse-applicative-0.17.0.0
   - parsec-3.1.15.0
   - primitive-0.7.3.0
   - process-1.6.13.2
@@ -46,17 +46,14 @@ extra-deps:
   - terminal-size-0.3.2.1
   - text-2.0
   - time-1.12.1
-  - transformers-0.5.6.2
   - transformers-base-0.4.6
   - transformers-compat-0.7.1
   - type-equality-1
   - unbounded-delays-0.1.1.1
   - unix-2.7.2.2
-  - unliftio-0.2.20
+  - unliftio-0.2.20.1
   - unliftio-core-0.2.0.1
   - unordered-containers-0.2.16.0
   - vector-0.12.3.1
   - vector-algorithms-0.8.0.4
   - wcwidth-0.0.2
-
-allow-newer: true
