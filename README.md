@@ -2,20 +2,24 @@
 
 [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 [![GitHub CI](https://github.com/ExtremaIS/hr-haskell/workflows/CI/badge.svg?branch=main)](https://github.com/ExtremaIS/hr-haskell/actions)
+[![Hackage](https://img.shields.io/hackage/v/horizontal-rule.svg)](https://hackage.haskell.org/package/horizontal-rule)
+[![Stackage LTS](https://stackage.org/package/horizontal-rule/badge/lts)](https://stackage.org/package/horizontal-rule)
+[![Stackage Nightly](https://stackage.org/package/horizontal-rule/badge/nightly)](https://stackage.org/nightly/package/horizontal-rule)
 
 * [Overview](#overview)
 * [CLI](#cli)
     * [Requirements](#requirements)
     * [Installation](#installation)
-        * [Installation From Source](#installation-from-source)
         * [`.deb` Package Installation](#deb-package-installation)
         * [`.rpm` Package Installation](#rpm-package-installation)
+        * [Installation From Hackage](#installation-from-hackage)
+        * [Installation From Stackage](#installation-from-stackage)
     * [Usage](#usage)
         * [Examples](#examples)
 * [Library](#library)
 * [Project](#project)
     * [Links](#links)
-    * [Releases](#releases)
+    * [Tags](#tags)
     * [Contribution](#contribution)
     * [License](#license)
 
@@ -36,28 +40,37 @@ the last build.
 
 ### Installation
 
-#### Installation From Source
-
-`hr` can be built from source using [Stack](https://www.haskellstack.org).
-For example, you can install the latest release (to `/usr/bin` on Linux) as
-follows:
-
-```
-$ git clone https://github.com/ExtremaIS/hr-haskell.git
-$ cd hr-haskell
-$ make
-$ sudo make install
-```
-
-##### `.deb` Package Installation
+#### `.deb` Package Installation
 
 Check the [Releases][] page for `.deb` packages.
 
-##### `.rpm` Package Installation
+[Releases]: <https://github.com/ExtremaIS/hr-haskell/releases>
+
+#### `.rpm` Package Installation
 
 Check the [Releases][] page for `.rpm` packages.
 
-[Releases]: <https://github.com/ExtremaIS/hr-haskell/releases>
+#### Installation From Hackage
+
+Install `hr` from [Hackage][] using [Cabal][] as follows:
+
+```
+$ cabal v2-install horizontal-rule
+```
+
+[Hackage]: <https://hackage.haskell.org/package/horizontal-rule>
+[Cabal]: <https://www.haskell.org/cabal/>
+
+#### Installation From Stackage
+
+Install `hr` from [Stackage][] using [Stack][] as follows:
+
+```
+$ stack install horizontal-rule
+```
+
+[Stackage]: <https://www.stackage.org/package/horizontal-rule>
+[Stack]: <https://haskellstack.org/>
 
 ### Usage
 
@@ -140,47 +153,20 @@ $ uname -m | hr -it unit tests
 ## Library
 
 You can easily include horizontal rules in the output of your own Haskell
-software by using the library.  The `hr` package is *not* in Hackage, however,
-so you need to get it from the GitHub repository.
-
-[Stack](https://www.haskellstack.org) users can add the dependency in
-`extra-deps` of the `stack.yaml` file, specifying the commit hash for the
-release.  Example:
-
-```
-resolver: lts-17.13
-
-packages:
-  - .
-
-extra-deps:
-  - github: ExtremaIS/hr-haskell
-    commit: e48bb5047c53de29c45488a56ee35689fa59b0a1
-```
-
-[Cabal](https://www.haskell.org/cabal/) users can add the dependency as a
-`source-repository-package` of the `cabal.project` file, specifying the commit
-hash for the release as "`tag`".  (This feature is available from Cabal 2.4.)
-Example:
-
-```
-packages: .
-
-source-repository-package
-    type: git
-    location: https://github.com/ExtremaIS/hr-haskell.git
-    tag: e48bb5047c53de29c45488a56ee35689fa59b0a1
-```
-
-A minimal example is provided in the [`example`](example) directory.
+software by using the library.  The Haskell package is named `horizontal-rule`
+in [Hackage][] and [Stackage][] because there is an existing package named
+[`hR`](https://hackage.haskell.org/package/hR).
 
 ## Project
 
 ### Links
 
+* Hackage: <https://hackage.haskell.org/package/horizontal-rule>
+* Stackage: <https://www.stackage.org/package/horizontal-rule>
 * GitHub: <https://github.com/ExtremaIS/hr-haskell>
+* GitHub Actions CI: <https://github.com/ExtremaIS/hr-haskell/actions>
 
-### Releases
+### Tags
 
 All releases are tagged in the `main` branch.  Release tags are signed using
 the

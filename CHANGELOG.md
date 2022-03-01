@@ -24,6 +24,20 @@ following conventions:
 
 [KaC]: <https://keepachangelog.com/en/1.0.0/>
 
+## 0.5.0.0 (2022-03-01)
+
+### Breaking
+
+* Rename Haskell package to `horizontal-rule`
+* Refactor API to use `MonadTerminal` instead of `IO` directly
+
+### Non-Breaking
+
+* Add mock tests
+* Bump `text` dependency version upper bound
+* Bump `time` dependency version upper bound
+* Bump `optparse-applicative` dependency version upper bound
+
 ## 0.4.0.0 (2021-06-25)
 
 ### Breaking

@@ -2,7 +2,7 @@
 -- |
 -- Module      : HR
 -- Description : horizontal rule for terminals
--- Copyright   : Copyright (c) 2019-2021 Travis Cardwell
+-- Copyright   : Copyright (c) 2019-2022 Travis Cardwell
 -- License     : MIT
 --
 -- This library is meant to be imported qualified, as follows:
@@ -38,23 +38,26 @@ module HR
   ) where
 
 -- https://hackage.haskell.org/package/base
+import Data.Maybe (fromMaybe)
 import Data.Version (showVersion)
-
--- https://hackage.haskell.org/package/terminal-size
-import qualified System.Console.Terminal.Size as Terminal
 
 -- https://hackage.haskell.org/package/text
 import qualified Data.Text as T
 import Data.Text (Text)
-import qualified Data.Text.IO as TIO
 
--- (hr:cabal)
-import qualified Paths_hr as Project
+-- (horizontal-rule)
+import qualified HR.Monad.Terminal as Terminal
+import HR.Monad.Terminal (MonadTerminal)
+
+-- (horizontal-rule:cabal)
+import qualified Paths_horizontal_rule as Project
 
 ------------------------------------------------------------------------------
 -- $Constants
 
--- | Package version
+-- | hr version string (\"@hr-haskell X.X.X.X@\")
+--
+-- @since 0.3.0.0
 version :: String
 version = "hr-haskell " ++ showVersion Project.version
 
@@ -148,30 +151,33 @@ renderUnicode = render unicodeParts
 
 -- | Write a horizontal rule to the standard output device
 --
--- @since 0.3.0.0
+-- @since 0.5.0.0
 put
-  :: Parts
+  :: MonadTerminal m
+  => Parts
   -> Int     -- ^ rule width (characters)
   -> [Text]  -- ^ notes
-  -> IO ()
-put parts width = TIO.putStrLn . render parts width
+  -> m ()
+put parts width = Terminal.putStrLn . render parts width
 
 -- | Write an ASCII horizontal rule to the standard output device
 --
--- @since 0.3.0.0
+-- @since 0.5.0.0
 putAscii
-  :: Int     -- ^ rule width (characters)
+  :: MonadTerminal m
+  => Int     -- ^ rule width (characters)
   -> [Text]  -- ^ notes
-  -> IO ()
+  -> m ()
 putAscii = put asciiParts
 
 -- | Write a Unicode horizontal rule to the standard output device
 --
--- @since 0.3.0.0
+-- @since 0.5.0.0
 putUnicode
-  :: Int     -- ^ rule width (characters)
+  :: MonadTerminal m
+  => Int     -- ^ rule width (characters)
   -> [Text]  -- ^ notes
-  -> IO ()
+  -> m ()
 putUnicode = put unicodeParts
 
 ------------------------------------------------------------------------------
@@ -180,34 +186,37 @@ putUnicode = put unicodeParts
 --
 -- The default rule width is used if the terminal width cannot be determined.
 --
--- @since 0.3.0.0
+-- @since 0.5.0.0
 putAuto
-  :: Parts
+  :: MonadTerminal m
+  => Parts
   -> Int     -- ^ default rule width (characters)
   -> [Text]  -- ^ notes
-  -> IO ()
+  -> m ()
 putAuto parts defaultWidth notes = do
-    width <- maybe defaultWidth Terminal.width <$> Terminal.size
-    TIO.putStrLn $ render parts width notes
+    width <- fromMaybe defaultWidth <$> Terminal.getWidth
+    Terminal.putStrLn $ render parts width notes
 
 -- | Write a full-width ASCII horizontal rule to the standard output device
 --
 -- The default rule width is used if the terminal width cannot be determined.
 --
--- @since 0.3.0.0
+-- @since 0.5.0.0
 putAutoAscii
-  :: Int     -- ^ default rule width (characters)
+  :: MonadTerminal m
+  => Int     -- ^ default rule width (characters)
   -> [Text]  -- ^ notes
-  -> IO ()
+  -> m ()
 putAutoAscii = putAuto asciiParts
 
 -- | Write a full-width Unicode horizontal rule to the standard output device
 --
 -- The default rule width is used if the terminal width cannot be determined.
 --
--- @since 0.3.0.0
+-- @since 0.5.0.0
 putAutoUnicode
-  :: Int     -- ^ default rule width (characters)
+  :: MonadTerminal m
+  => Int     -- ^ default rule width (characters)
   -> [Text]  -- ^ notes
-  -> IO ()
+  -> m ()
 putAutoUnicode = putAuto unicodeParts

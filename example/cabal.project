@@ -1,6 +1,0 @@
-packages: .
-
-source-repository-package
-    type: git
-    location: https://github.com/ExtremaIS/hr-haskell.git
-    tag: e48bb5047c53de29c45488a56ee35689fa59b0a1
