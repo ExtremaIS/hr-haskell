@@ -36,6 +36,7 @@ jobs:
           else
             cabal v2-test --enable-tests
           fi
+
   stack:
     name: "Stack: GHC ${{ matrix.ghc }}"
     runs-on: ubuntu-latest
