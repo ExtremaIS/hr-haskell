@@ -25,13 +25,17 @@ jobs:
       - name: Build
         run: |
           if [ -f "cabal-${{ matrix.ghc }}.project" ] ; then
-            cabal new-build --project-file=cabal-${{ matrix.ghc }}.project --enable-tests --enable-benchmarks
+            cabal v2-build --project-file=cabal-${{ matrix.ghc }}.project --enable-tests --enable-benchmarks
           else
-            cabal new-build --enable-tests --enable-benchmarks
+            cabal v2-build --enable-tests --enable-benchmarks
           fi
       - name: Test
-        run: cabal new-test --project-file=cabal-${{ matrix.ghc }}.project --enable-tests
-
+        run: |
+          if [ -f "cabal-${{ matrix.ghc }}.project" ] ; then
+            cabal v2-test --project-file=cabal-${{ matrix.ghc }}.project --enable-tests
+          else
+            cabal v2-test --enable-tests
+          fi
   stack:
     name: "Stack: GHC ${{ matrix.ghc }}"
     runs-on: ubuntu-latest
@@ -77,6 +81,6 @@ jobs:
           ghc-version: 8.2.2
           cabal-version: ${{ matrix.cabal }}
       - name: Build
-        run: cabal new-build --enable-tests --enable-benchmarks
+        run: cabal v2-build --enable-tests --enable-benchmarks
       - name: Test
-        run: cabal new-test --enable-tests
+        run: cabal v2-test --enable-tests
