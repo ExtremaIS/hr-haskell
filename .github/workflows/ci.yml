@@ -23,7 +23,12 @@ jobs:
           ghc-version: ${{ matrix.ghc }}
           cabal-version: latest
       - name: Build
-        run: cabal new-build --project-file=cabal-${{ matrix.ghc }}.project --enable-tests --enable-benchmarks
+        run: |
+          if [ -f "cabal-${{ matrix.ghc }}.project" ] ; then
+            cabal new-build --project-file=cabal-${{ matrix.ghc }}.project --enable-tests --enable-benchmarks
+          else
+            cabal new-build --enable-tests --enable-benchmarks
+          fi
       - name: Test
         run: cabal new-test --project-file=cabal-${{ matrix.ghc }}.project --enable-tests
 
