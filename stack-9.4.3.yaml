@@ -1,0 +1,9 @@
+resolver: nightly-2022-12-17
+
+packages:
+  - .
+
+extra-deps:
+  - HMock-0.5.1.0
+
+allow-newer: true
