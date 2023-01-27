@@ -47,7 +47,7 @@ library
   other-modules:
       Paths_horizontal_rule
   build-depends:
-      base >=4.7 && <5
+      base >=4.10.1 && <5
     , terminal-size >=0.3 && <0.4
     , text >=1.2.3 && <2.1
   default-language: Haskell2010
