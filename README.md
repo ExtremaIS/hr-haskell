@@ -74,7 +74,9 @@ $ stack install horizontal-rule
 
 ### Usage
 
-See the [`hr` man page](doc/hr.1.md) for usage information.
+See the [`hr` man page][] for usage information.
+
+[`hr` man page]: <doc/hr.1.md>
 
 #### Examples
 
@@ -169,8 +171,9 @@ in [Hackage][] and [Stackage][] because there is an existing package named
 ### Tags
 
 All releases are tagged in the `main` branch.  Release tags are signed using
-the
-[`security@extrema.is` GPG key](http://keys.gnupg.net/pks/lookup?op=vindex&fingerprint=on&search=0x1D484E4B4705FADF).
+the [`security@extrema.is` GPG key][].
+
+[`security@extrema.is` GPG key]: <http://keys.gnupg.net/pks/lookup?op=vindex&fingerprint=on&search=0x1D484E4B4705FADF>
 
 ### Contribution
 
@@ -181,6 +184,8 @@ Issues may also be submitted via email to <bugs@extrema.is>.
 
 ### License
 
-This project is released under the
-[MIT License](https://opensource.org/licenses/MIT) as specified in the
-[`LICENSE`](LICENSE) file.
+This project is released under the [MIT License][] as specified in the
+[`LICENSE`][] file.
+
+[MIT License]: <https://opensource.org/licenses/MIT>
+[`LICENSE`]: <LICENSE>
