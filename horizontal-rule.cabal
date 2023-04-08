@@ -48,8 +48,8 @@ library
   other-modules:
       Paths_horizontal_rule
   build-depends:
-      base >=4.10.1 && <5
-    , terminal-size >=0.3 && <0.4
+      base >=4.10.1 && <4.19
+    , terminal-size >=0.2 && <0.4
     , text >=1.2.3 && <2.1
   default-language: Haskell2010
   default-extensions:
@@ -65,12 +65,12 @@ executable hr
   other-modules:
       LibOA
   build-depends:
-      ansi-wl-pprint >=0.6 && <0.7
+      ansi-wl-pprint >=0.6.8 && <0.7
     , base
     , horizontal-rule
-    , optparse-applicative >=0.14 && <0.18
+    , optparse-applicative >=0.13 && <0.18
     , text
-    , time >=1.8 && <1.13
+    , time >=1.8.0.2 && <1.13
   default-language: Haskell2010
   ghc-options: -Wall
 
@@ -83,8 +83,8 @@ test-suite horizontal-rule-test
   build-depends:
       base
     , horizontal-rule
-    , tasty >=1.0 && <1.5
-    , tasty-hunit >=0.10 && <0.11
+    , tasty >=0.12 && <1.5
+    , tasty-hunit >=0.8 && <0.11
   if impl(ghc >= 8.6.1)
     other-modules:
         HR.Mock

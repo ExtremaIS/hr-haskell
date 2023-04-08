@@ -1,0 +1,31 @@
+packages: ./horizontal-rule.cabal
+
+with-compiler: ghc-8.2.2
+
+constraints:
+    -- https://hackage.haskell.org/package/ansi-wl-pprint
+    ansi-wl-pprint == 0.6.8
+
+    -- https://hackage.haskell.org/package/base
+    -- GHC boot library
+  , base == 4.10.1.0
+
+    -- https://hackage.haskell.org/package/optparse-applicative
+  , optparse-applicative == 0.13.0.0
+
+    -- https://hackage.haskell.org/package/tasty
+  , tasty == 0.12
+
+    -- https://hackage.haskell.org/package/tasty-hunit
+  , tasty-hunit == 0.8
+
+    -- https://hackage.haskell.org/package/terminal-size
+  , terminal-size == 0.2.0.0
+
+    -- https://hackage.haskell.org/package/text
+    -- (GHC boot library from GHC 8.4)
+  , text == 1.2.3.0
+
+    -- https://hackage.haskell.org/package/time
+    -- GHC boot library
+  , time == 1.8.0.2
