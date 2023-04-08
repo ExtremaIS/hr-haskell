@@ -165,6 +165,7 @@ in [Hackage][] and [Stackage][] because there is an existing package named
 
 * Hackage: <https://hackage.haskell.org/package/horizontal-rule>
 * Stackage: <https://www.stackage.org/package/horizontal-rule>
+* Flora: <https://flora.pm/packages/@hackage/horizontal-rule>
 * GitHub: <https://github.com/ExtremaIS/hr-haskell>
 * GitHub Actions CI: <https://github.com/ExtremaIS/hr-haskell/actions>
 
