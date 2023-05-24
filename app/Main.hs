@@ -8,12 +8,14 @@
 -- See the README for details.
 ------------------------------------------------------------------------------
 
+{-# LANGUAGE CPP #-}
 {-# LANGUAGE RecordWildCards #-}
 
-module Main (main) where
+#if MIN_VERSION_ansi_wl_pprint (1,0,2)
+{-# OPTIONS_GHC -Wno-warnings-deprecations #-}
+#endif
 
--- https://hackage.haskell.org/package/ansi-wl-pprint
-import Text.PrettyPrint.ANSI.Leijen (Doc)
+module Main (main) where
 
 -- https://hackage.haskell.org/package/base
 import Control.Applicative (many, optional)
@@ -176,7 +178,7 @@ main = do
           , OA.footerDoc $ Just formatHelp
           ]
 
-    formatHelp :: Doc
+    formatHelp :: LibOA.Doc
     formatHelp = LibOA.section "FORMAT codes:" $ LibOA.table_ 2
       [ ["%Y", "four-digit year"]
       , ["%y", "two-digit year"]

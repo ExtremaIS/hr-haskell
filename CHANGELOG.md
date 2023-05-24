@@ -28,6 +28,7 @@ following conventions:
 
 ### Non-Breaking
 
+* Bump `ansi-wl-pprint` dependency version upper bound
 * Adjust dependency constraints to match tested versions
 
 ## 0.5.0.0 (2022-03-01)

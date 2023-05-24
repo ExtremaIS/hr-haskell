@@ -58,7 +58,7 @@ executable hr
   other-modules:
       LibOA
   build-depends:
-      ansi-wl-pprint >=0.6.8 && <0.7
+      ansi-wl-pprint >=0.6.8 && <1.1
     , base
     , horizontal-rule
     , optparse-applicative >=0.13 && <0.18
