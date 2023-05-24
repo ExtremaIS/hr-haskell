@@ -36,6 +36,11 @@ source-repository head
   type: git
   location: https://github.com/ExtremaIS/hr-haskell.git
 
+flag oa_0_18
+  description: Use optparse-applicative 0.18 or newer
+  default: False
+  manual: False
+
 library
   hs-source-dirs: src
   exposed-modules:
@@ -58,12 +63,18 @@ executable hr
   other-modules:
       LibOA
   build-depends:
-      ansi-wl-pprint >=0.6.8 && <1.1
-    , base
+      base
     , horizontal-rule
-    , optparse-applicative >=0.13 && <0.18
     , text
     , time >=1.8.0.2 && <1.13
+  if flag(oa_0_18)
+    build-depends:
+        optparse-applicative >=0.18 && <0.19
+      , prettyprinter >=1.7.1 && <1.8
+  else
+    build-depends:
+        ansi-wl-pprint >=0.6.8 && <1.1
+      , optparse-applicative >=0.13 && <0.18
   default-language: Haskell2010
   ghc-options: -Wall
 
