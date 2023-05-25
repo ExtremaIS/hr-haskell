@@ -165,15 +165,15 @@ vspace = mconcat . intersperse (Doc.line <> Doc.line)
 -- $Internal
 
 docEmpty :: Doc
-#if defined(MIN_VERSION_ansi_wl_pprint)
-docEmpty = Doc.empty
-#else
+#if MIN_VERSION_optparse_applicative (0,18,0)
 docEmpty = Doc.emptyDoc
+#else
+docEmpty = Doc.empty
 #endif
 
 docString :: String -> Doc
-#if defined(MIN_VERSION_ansi_wl_pprint)
-docString = Doc.string
-#else
+#if MIN_VERSION_optparse_applicative (0,18,0)
 docString = Doc.pretty
+#else
+docString = Doc.string
 #endif
