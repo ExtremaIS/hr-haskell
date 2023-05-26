@@ -5,7 +5,7 @@ packages:
 
 flags:
   horizontal-rule:
-    oa_0_18: true
+    optparse-applicative_ge_0_18: true
 
 extra-deps:
   - ansi-terminal-0.11.5

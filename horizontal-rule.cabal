@@ -36,7 +36,8 @@ source-repository head
   type: git
   location: https://github.com/ExtremaIS/hr-haskell.git
 
-flag oa_0_18
+-- This flag is referenced in the Stack build-constraints.yaml configuration.
+flag optparse-applicative_ge_0_18
   description: Use optparse-applicative 0.18 or newer
   default: False
   manual: False
@@ -67,7 +68,7 @@ executable hr
     , horizontal-rule
     , text
     , time >=1.8.0.2 && <1.13
-  if flag(oa_0_18)
+  if flag(optparse-applicative_ge_0_18)
     build-depends:
         optparse-applicative >=0.18 && <0.19
       , prettyprinter >=1.7.1 && <1.8
