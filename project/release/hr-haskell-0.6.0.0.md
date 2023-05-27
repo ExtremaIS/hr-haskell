@@ -1,7 +1,7 @@
 # `hr-haskell` `0.6.0.0` Release Notes
 
 Date
-: 2023-05-27
+: 2023-05-28
 
 ## Overview
 
