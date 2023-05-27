@@ -24,6 +24,17 @@ following conventions:
 
 [KaC]: <https://keepachangelog.com/en/1.0.0/>
 
+## 0.6.0.0 (2023-05-28)
+
+### Breaking
+
+* Add support for `optparse-applicative` `0.18`
+
+### Non-Breaking
+
+* Bump `ansi-wl-pprint` dependency version upper bound
+* Adjust dependency constraints to match tested versions
+
 ## 0.5.0.0 (2022-03-01)
 
 ### Breaking
