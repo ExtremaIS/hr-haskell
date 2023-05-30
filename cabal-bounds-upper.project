@@ -8,7 +8,7 @@ constraints:
     base == 4.18.0.0
 
     -- https://hackage.haskell.org/package/optparse-applicative
-  , optparse-applicative == 0.18.0.0
+  , optparse-applicative == 0.18.1.0
 
     -- https://hackage.haskell.org/package/prettyprinter
   , prettyprinter == 1.7.1
