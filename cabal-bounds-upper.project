@@ -24,14 +24,14 @@ constraints:
 
     -- https://hackage.haskell.org/package/text
     -- (GHC boot library from GHC 8.4)
-  , text == 2.0.2
+  , text == 2.1
 
     -- https://hackage.haskell.org/package/time
     -- GHC boot library
   , time == 1.12.2
 
 allow-newer:
-    HMock-0.5.1.0:base
-  , HMock-0.5.1.0:template-haskell
-  , explainable-predicates-0.1.2.2:base
-  , explainable-predicates-0.1.2.2:template-haskell
+    hashable:text
+  , parsec:text
+  , regex-base:text
+  , regex-tdfa:text
