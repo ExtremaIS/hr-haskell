@@ -88,7 +88,7 @@ test-suite horizontal-rule-test
   build-depends:
       base
     , horizontal-rule
-    , tasty >=0.12 && <1.5
+    , tasty >=0.12 && <1.6
     , tasty-hunit >=0.8 && <0.11
   if impl(ghc >= 8.6.1)
     other-modules:

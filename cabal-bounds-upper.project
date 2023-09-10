@@ -14,10 +14,10 @@ constraints:
   , prettyprinter == 1.7.1
 
     -- https://hackage.haskell.org/package/tasty
-  , tasty == 1.4.3
+  , tasty == 1.5
 
     -- https://hackage.haskell.org/package/tasty-hunit
-  , tasty-hunit == 0.10.0.3
+  , tasty-hunit == 0.10.1
 
     -- https://hackage.haskell.org/package/terminal-size
   , terminal-size == 0.3.4
