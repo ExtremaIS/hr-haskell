@@ -1,11 +1,14 @@
 packages: ./horizontal-rule.cabal
 
-with-compiler: ghc-9.6.3
+with-compiler: ghc-9.8.1
 
 constraints:
     -- https://hackage.haskell.org/package/base
     -- GHC boot library
-    base == 4.18.1.0
+    base == 4.19.0.0
+
+    -- https://hackage.haskell.org/package/HMock
+  , HMock == 0.5.1.0
 
     -- https://hackage.haskell.org/package/optparse-applicative
   , optparse-applicative == 0.18.1.0
@@ -31,7 +34,7 @@ constraints:
   , time == 1.12.2
 
 allow-newer:
-    hashable:text
-  , parsec:text
-  , regex-base:text
-  , regex-tdfa:text
+    explainable-predicates:base
+  , explainable-predicates:template-haskell
+  , HMock:base
+  , HMock:template-haskell
