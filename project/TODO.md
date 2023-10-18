@@ -18,6 +18,7 @@
 * Remove `allow-newer` entries in `cabal-bounds-upper.project`
     * [`HMock`](https://hackage.haskell.org/package/HMock)
       when support `template-haskell` `2.21.0.0`
+* Update bounds on Hackage after above compatibility is resolved
 
 ## Documentation
 
