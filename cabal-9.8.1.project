@@ -1,0 +1,7 @@
+packages: ./horizontal-rule.cabal
+
+allow-newer:
+    explainable-predicates:base
+  , explainable-predicates:template-haskell
+  , HMock:base
+  , HMock:template-haskell
