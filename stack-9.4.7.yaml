@@ -1,7 +1,0 @@
-resolver: lts-21.19
-
-packages:
-  - .
-
-extra-deps:
-  - HMock-0.5.1.0
