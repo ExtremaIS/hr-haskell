@@ -23,10 +23,10 @@ extra-deps:
   - data-default-instances-dlist-0.0.1
   - data-default-instances-old-locale-0.0.1
   - dlist-1.0
-  - explainable-predicates-0.1.2.3
+  - explainable-predicates-0.1.2.4
   - extra-1.7.14
   - hashable-1.4.3.0
-  - HMock-0.5.1.0
+  - HMock-0.5.1.2
   - HUnit-1.6.2.0
   - monad-control-1.0.3.1
   - mono-traversable-1.0.15.3
@@ -57,9 +57,9 @@ extra-deps:
   - vector-algorithms-0.9.0.1
   - vector-stream-0.1.0.0
 
-allow-newer: true
-
-allow-newer-deps:
-  - explainable-predicates
-  - HMock
-  - unliftio-core
+#allow-newer: true
+#
+#allow-newer-deps:
+#  - explainable-predicates
+#  - HMock
+#  - unliftio-core

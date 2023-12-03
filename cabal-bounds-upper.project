@@ -8,7 +8,7 @@ constraints:
     base == 4.19.0.0
 
     -- https://hackage.haskell.org/package/HMock
-  , HMock == 0.5.1.0
+  , HMock == 0.5.1.2
 
     -- https://hackage.haskell.org/package/optparse-applicative
   , optparse-applicative == 0.18.1.0
@@ -32,9 +32,3 @@ constraints:
     -- https://hackage.haskell.org/package/time
     -- GHC boot library
   , time == 1.12.2
-
-allow-newer:
-    explainable-predicates:base
-  , explainable-predicates:template-haskell
-  , HMock:base
-  , HMock:template-haskell
