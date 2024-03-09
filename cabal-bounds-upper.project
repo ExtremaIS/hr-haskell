@@ -1,11 +1,11 @@
 packages: ./horizontal-rule.cabal
 
-with-compiler: ghc-9.8.1
+with-compiler: ghc-9.8.2
 
 constraints:
     -- https://hackage.haskell.org/package/base
     -- GHC boot library
-    base == 4.19.0.0
+    base == 4.19.1.0
 
     -- https://hackage.haskell.org/package/HMock
   , HMock == 0.5.1.2
@@ -27,7 +27,7 @@ constraints:
 
     -- https://hackage.haskell.org/package/text
     -- (GHC boot library from GHC 8.4)
-  , text == 2.1
+  , text == 2.1.1
 
     -- https://hackage.haskell.org/package/time
     -- GHC boot library
