@@ -68,7 +68,7 @@ executable hr
       base
     , horizontal-rule
     , text
-    , time >=1.8.0.2 && <1.13
+    , time >=1.8.0.2 && <1.15
   if flag(optparse-applicative_ge_0_18)
     build-depends:
         optparse-applicative >=0.18 && <0.19

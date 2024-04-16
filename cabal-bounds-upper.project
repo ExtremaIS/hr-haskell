@@ -31,4 +31,4 @@ constraints:
 
     -- https://hackage.haskell.org/package/time
     -- GHC boot library
-  , time == 1.12.2
+  , time == 1.14
