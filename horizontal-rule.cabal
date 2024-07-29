@@ -1,4 +1,4 @@
-cabal-version:      2.4
+cabal-version:      3.0
 name:               horizontal-rule
 version:            0.6.0.0
 synopsis:           horizontal rule for the terminal
@@ -21,8 +21,7 @@ extra-doc-files:
   README.md
 
 tested-with:
-  GHC ==8.6.5
-   || ==8.8.4
+  GHC ==8.8.4
    || ==8.10.7
    || ==9.0.2
    || ==9.2.8
@@ -50,9 +49,9 @@ library
   autogen-modules:
       Paths_horizontal_rule
   build-depends:
-      base >=4.12.0.0 && <4.20
+      base >=4.13.0.0 && <4.20
     , terminal-size >=0.3.2.1 && <0.4
-    , text >=1.2.3.1 && <2.2
+    , text >=1.2.4.0 && <2.2
   default-language: Haskell2010
   default-extensions:
       OverloadedStrings
@@ -67,7 +66,7 @@ executable hr
       base
     , horizontal-rule
     , text
-    , time >=1.8.0.2 && <1.15
+    , time >=1.9.3 && <1.15
   if flag(optparse-applicative_ge_0_18)
     build-depends:
         optparse-applicative >=0.18 && <0.19
@@ -75,7 +74,7 @@ executable hr
   else
     build-depends:
         ansi-wl-pprint >=0.6.9 && <1.1
-      , optparse-applicative >=0.14.3.0 && <0.18
+      , optparse-applicative >=0.15.1.0 && <0.18
   default-language: Haskell2010
   ghc-options: -Wall
 
@@ -84,16 +83,13 @@ test-suite horizontal-rule-test
   hs-source-dirs: test
   main-is: Spec.hs
   other-modules:
-      HR.Test
+      HR.Mock
+    , HR.Test
   build-depends:
       base
+    , HMock >=0.5.1.0 && <0.6
     , horizontal-rule
     , tasty >=1.2.3 && <1.6
-    , tasty-hunit >=0.10.0.2 && <0.11
-  if impl(ghc >= 8.6.1)
-    other-modules:
-        HR.Mock
-    build-depends:
-        HMock >=0.5.1 && <0.6
+    , tasty-hunit >=0.10.0.3 && <0.11
   default-language: Haskell2010
   ghc-options: -Wall -threaded -rtsopts -with-rtsopts=-N
