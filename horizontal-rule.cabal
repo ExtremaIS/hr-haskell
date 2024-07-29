@@ -1,25 +1,27 @@
-name:           horizontal-rule
-version:        0.6.0.0
-category:       Utils
-synopsis:       horizontal rule for the terminal
+cabal-version:      2.2
+name:               horizontal-rule
+version:            0.6.0.0
+synopsis:           horizontal rule for the terminal
 description:
   This package provides a utility for displaying a horizontal rule in a
   terminal.  Please see the README on GitHub at
   <https://github.com/ExtremaIS/hr-haskell#readme>.
+homepage:           https://github.com/ExtremaIS/hr-haskell#readme
+bug-reports:        https://github.com/ExtremaIS/hr-haskell/issues
+license:            MIT
+license-file:       LICENSE
+author:             Travis Cardwell <travis.cardwell@extrema.is>
+maintainer:         Travis Cardwell <travis.cardwell@extrema.is>
+copyright:          Copyright (c) 2019-2024 Travis Cardwell
+category:           Utils
+build-type:         Simple
 
-homepage:       https://github.com/ExtremaIS/hr-haskell#readme
-bug-reports:    https://github.com/ExtremaIS/hr-haskell/issues
-author:         Travis Cardwell <travis.cardwell@extrema.is>
-maintainer:     Travis Cardwell <travis.cardwell@extrema.is>
-copyright:      Copyright (c) 2019-2024 Travis Cardwell
-license:        MIT
-license-file:   LICENSE
+extra-doc-files:
+  CHANGELOG.md
+  README.md
 
-cabal-version:  1.24
-build-type:     Simple
 tested-with:
-  GHC ==8.2.2
-   || ==8.4.4
+  GHC ==8.4.4
    || ==8.6.5
    || ==8.8.4
    || ==8.10.7
@@ -28,10 +30,6 @@ tested-with:
    || ==9.4.8
    || ==9.6.6
    || ==9.8.2
-
-extra-doc-files:
-  CHANGELOG.md
-  README.md
 
 source-repository head
   type: git
@@ -51,9 +49,9 @@ library
   other-modules:
       Paths_horizontal_rule
   build-depends:
-      base >=4.10.1 && <4.20
-    , terminal-size >=0.2 && <0.4
-    , text >=1.2.3 && <2.2
+      base >=4.11.1.0 && <4.20
+    , terminal-size >=0.3.2.1 && <0.4
+    , text >=1.2.3.1 && <2.2
   default-language: Haskell2010
   default-extensions:
       OverloadedStrings
@@ -75,8 +73,8 @@ executable hr
       , prettyprinter >=1.7.1 && <1.8
   else
     build-depends:
-        ansi-wl-pprint >=0.6.8 && <1.1
-      , optparse-applicative >=0.13 && <0.18
+        ansi-wl-pprint >=0.6.8.2 && <1.1
+      , optparse-applicative >=0.14.3.0 && <0.18
   default-language: Haskell2010
   ghc-options: -Wall
 
@@ -89,8 +87,8 @@ test-suite horizontal-rule-test
   build-depends:
       base
     , horizontal-rule
-    , tasty >=0.12 && <1.6
-    , tasty-hunit >=0.8 && <0.11
+    , tasty >=1.1.0.4 && <1.6
+    , tasty-hunit >=0.10.0.1 && <0.11
   if impl(ghc >= 8.6.1)
     other-modules:
         HR.Mock
