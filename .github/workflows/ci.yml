@@ -244,7 +244,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        cabal: ['2.4.1.0']
+        cabal: ['3.0.0.0']
         ghc: ['8.8.4']
     steps:
       - name: Checkout
