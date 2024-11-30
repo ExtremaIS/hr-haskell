@@ -6,19 +6,20 @@
 
 ## Compatibility
 
-* GHC 9.10.1 boot library
-  [`base`](https://hackage.haskell.org/package/base)
-  `4.20.0.0` blocked by
-  [`HMock`](https://hackage.haskell.org/package/HMock)
-  ([PR](https://github.com/cdsmith/HMock/pull/36)) and
-  [`explainable-predicates`](https://hackage.haskell.org/package/explainable-predicates)
-  ([PR](https://github.com/cdsmith/explainable-predicates/pull/21)).
-* [`tasty`](https://hackage.haskell.org/package/tasty)
-  `1.5.1` is deprecated.  See issue
-  [#421](https://github.com/UnkindPartition/tasty/issues/421).
+* GHC 9.8.3 is not distributed by GHCup, which is used by `haskell-actions`.
+  I have not had time to update the CI configuration to test it specially, but
+  GHC 9.8.4 will thankfully soon be released.
+* GHC 9.10.1 is now supported, by vendoring problematic dependencies.  This
+  requires releasing a new version of the project.  I plan on doing this after
+  support for GHC 9.8.4 is complete.
 
 ## Documentation
 
 ## Examples
 
 ## Project
+
+* Decide what to do about `HMock`
+    * Remove tests?
+    * Switch to a different mock library?
+    * Rewrite using an effects library?
