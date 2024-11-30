@@ -17,9 +17,12 @@ Vendored:
 * [Repository](https://github.com/TravisCardwell/HMock/tree/vendored)
 * Upstream commit:
   [`275fba1c`](https://github.com/cdsmith/HMock/tree/275fba1cf7d2c1e5022254fa0e90d495fd7cd8b8)
-* Vendored commit: (same)
+* Vendored commit:
+  [`0bb7ba7f`](https://github.com/TravisCardwell/HMock/tree/0bb7ba7fc5bcd9d27049cd153bd313692b85aeb4)
     * The commit adding support for GHC 9.10 was merged, but Hackage has not
       been updated.
+    * Bump `data-default` upper bound
+    * Bump `extra` upper bound
 * Files: `test/Test/HMock*`
 
 ## `explainable-predicates`
