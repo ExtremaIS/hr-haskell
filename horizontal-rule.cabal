@@ -1,6 +1,6 @@
 cabal-version:      3.0
 name:               horizontal-rule
-version:            0.6.0.0
+version:            0.7.0.0
 synopsis:           horizontal rule for the terminal
 description:
   This package provides a utility for displaying a horizontal rule in a
