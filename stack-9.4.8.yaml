@@ -1,9 +1,7 @@
-resolver: nightly-2023-05-27
+resolver: lts-21.25
 
 packages:
   - .
 
 extra-deps:
   - HMock-0.5.1.0
-
-allow-newer: true
