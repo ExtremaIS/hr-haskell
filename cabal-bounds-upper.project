@@ -28,7 +28,7 @@ constraints:
     -- https://hackage.haskell.org/package/exceptions
     -- GHC boot library
     -- vendored dependency
-  , exceptions == 0.10.9
+  , exceptions == 0.10.7
 
     -- https://hackage.haskell.org/package/extra
     -- vendored dependency
@@ -74,7 +74,7 @@ constraints:
 
     -- https://hackage.haskell.org/package/text
     -- GHC boot library
-  , text == 2.1.2
+  , text == 2.1.1
 
     -- https://hackage.haskell.org/package/time
     -- GHC boot library
