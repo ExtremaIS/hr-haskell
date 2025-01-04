@@ -3,6 +3,10 @@ resolver: lts-16.31
 packages:
   - .
 
+flags:
+  horizontal-rule:
+    optparse-applicative_ge_0_18: false
+
 extra-deps:
   - constraints-0.13.2
   - explainable-predicates-0.1.2.1

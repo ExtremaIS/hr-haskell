@@ -2,7 +2,3 @@ resolver: nightly-2025-01-04
 
 packages:
   - .
-
-flags:
-  horizontal-rule:
-    optparse-applicative_ge_0_18: true

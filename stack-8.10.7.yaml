@@ -3,6 +3,10 @@ resolver: lts-18.28
 packages:
   - .
 
+flags:
+  horizontal-rule:
+    optparse-applicative_ge_0_18: false
+
 extra-deps:
   - explainable-predicates-0.1.2.1
   - HMock-0.5.1.0
