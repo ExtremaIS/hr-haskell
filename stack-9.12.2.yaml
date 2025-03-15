@@ -1,4 +1,4 @@
-resolver: ghc-9.12.1
+resolver: ghc-9.12.2
 
 packages:
   - .
@@ -23,7 +23,7 @@ extra-deps:
   - safe-exceptions-0.1.7.4
   - syb-0.7.2.4
   - tagged-0.8.9
-  - tasty-1.5.2
+  - tasty-1.5.3
   - tasty-hunit-0.10.2
   - terminal-size-0.3.4
   - transformers-base-0.4.6
