@@ -23,7 +23,7 @@ constraints:
 
     -- https://hackage.haskell.org/package/data-default
     -- vendored dependency
-  , data-default == 0.8.0.0
+  , data-default == 0.8.0.1
 
     -- https://hackage.haskell.org/package/exceptions
     -- GHC boot library
@@ -86,4 +86,4 @@ constraints:
 
     -- https://hackage.haskell.org/package/unliftio
     -- vendored dependency
-  , unliftio == 0.2.25.0
+  , unliftio == 0.2.25.1
