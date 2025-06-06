@@ -1,0 +1,4 @@
+resolver: nightly-2025-05-28
+
+packages:
+  - .
