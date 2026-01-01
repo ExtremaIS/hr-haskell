@@ -2,7 +2,7 @@
 -- |
 -- Module      : HR.Monad.Terminal
 -- Description : terminal output
--- Copyright   : Copyright (c) 2019-2025 Travis Cardwell
+-- Copyright   : Copyright (c) 2019-2026 Travis Cardwell
 -- License     : MIT
 ------------------------------------------------------------------------------
 

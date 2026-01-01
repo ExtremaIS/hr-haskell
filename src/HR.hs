@@ -2,7 +2,7 @@
 -- |
 -- Module      : HR
 -- Description : horizontal rule for terminals
--- Copyright   : Copyright (c) 2019-2025 Travis Cardwell
+-- Copyright   : Copyright (c) 2019-2026 Travis Cardwell
 -- License     : MIT
 --
 -- This library is meant to be imported qualified, as follows:
