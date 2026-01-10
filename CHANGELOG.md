@@ -35,6 +35,7 @@ following conventions:
 
 * Bump `base` dependency version upper bound
 * Bump `optparse-applicative` dependency version upper bound
+* Bump `time` dependency version upper bound
 
 ## 0.7.0.0 (2024-12-04)
 

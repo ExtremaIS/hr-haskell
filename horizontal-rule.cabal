@@ -30,6 +30,7 @@ tested-with:
    || ==9.8.4
    || ==9.10.3
    || ==9.12.2
+   || ==9.14.1
 
 source-repository head
   type: git
@@ -50,7 +51,7 @@ library
   autogen-modules:
       Paths_horizontal_rule
   build-depends:
-      base >=4.13 && <4.22
+      base >=4.13 && <4.23
     , terminal-size >=0.3.2.1 && <0.4
     , text >=1.2.4 && <2.2
   default-language: Haskell2010
@@ -67,7 +68,7 @@ executable hr
       base
     , horizontal-rule
     , text
-    , time >=1.9.3 && <1.15
+    , time >=1.9.3 && <1.16
   if flag(optparse-applicative_ge_0_18)
     build-depends:
         optparse-applicative >=0.18 && <0.20
