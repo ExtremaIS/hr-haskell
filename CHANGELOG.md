@@ -26,16 +26,13 @@ following conventions:
 
 ## Unreleased
 
-### Breaking
-
-* Remove mock tests, vendored `HMock` and `explainable-predicates`
-  dependencies
-
 ### Non-Breaking
 
 * Bump `base` dependency version upper bound
 * Bump `optparse-applicative` dependency version upper bound
 * Bump `time` dependency version upper bound
+* Remove mock tests, vendored `HMock` and `explainable-predicates`
+  dependencies
 
 ## 0.7.0.0 (2024-12-04)
 
