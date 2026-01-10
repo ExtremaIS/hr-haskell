@@ -24,6 +24,16 @@ following conventions:
 
 [KaC]: <https://keepachangelog.com/en/1.0.0/>
 
+## 0.7.1.0 (2026-01-10)
+
+### Non-Breaking
+
+* Bump `base` dependency version upper bound
+* Bump `optparse-applicative` dependency version upper bound
+* Bump `time` dependency version upper bound
+* Remove mock tests, vendored `HMock` and `explainable-predicates`
+  dependencies
+
 ## 0.7.0.0 (2024-12-04)
 
 ### Breaking

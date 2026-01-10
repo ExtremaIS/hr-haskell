@@ -10,9 +10,6 @@ constraints:
     -- GHC boot library
   , base == 4.13.0.0
 
-    -- https://hackage.haskell.org/package/HMock
-  , HMock == 0.5.1.0
-
     -- https://hackage.haskell.org/package/optparse-applicative
   , optparse-applicative == 0.15.1.0
 

@@ -3,5 +3,6 @@ resolver: lts-21.25
 packages:
   - .
 
-extra-deps:
-  - HMock-0.5.1.0
+flags:
+  horizontal-rule:
+    optparse-applicative_ge_0_18: false
